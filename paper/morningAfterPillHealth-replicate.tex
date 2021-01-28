@@ -1,0 +1,1028 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{epstopdf}
+\usepackage{booktabs}
+\usepackage{lscape}
+\usepackage{setspace}
+\usepackage{subcaption}
+\usepackage{subfloat}
+\usepackage[bottom]{footmisc}
+\usepackage{natbib}
+\usepackage[margin=0.95in,footskip=0.25in]{geometry}
+\usepackage[capposition=top]{floatrow}
+\usepackage{fontspec}
+\setmainfont{Times New Roman}
+\usepackage{newtxmath}
+\usepackage{longtable}
+\setlength{\parskip}{6pt} 
+\usepackage{rotating}
+\usepackage{url}
+\usepackage{tikz}
+\usepackage{hyperref}
+\usepackage{pgfplots}
+
+\usepackage{lineno}
+
+\usepackage{sectsty}
+
+\sectionfont{\large}
+\subsectionfont{\large}
+\subsubsectionfont{\large}
+
+\usepackage{titlesec}
+\titlespacing\section{0pt}{12pt plus 4pt minus 2pt}{0pt plus 2pt minus 2pt}
+\titlespacing\subsection{0pt}{12pt plus 4pt minus 2pt}{0pt plus 2pt minus 2pt}
+\titlespacing\subsubsection{0pt}{12pt plus 4pt minus 2pt}{0pt plus 2pt minus 2pt}
+
+
+\title{{\Large Access to the Emergency Contraceptive Pill and Women's Reproductive Health: Evidence from Public Reform in Chile}\thanks{We thank the editor Mark D.\ Hayward, a co-editor and three anonymous referees, as well as Blair G. Darney, Alejandra Ramm, Amanda Stevensen, Christine Valente and participants at PAA Austin and the Institute for Research in Market Imperfections and Public Policy workshop for useful comments.  We thank Electra Gonz\'alez and Ingrid Leal Fuentes for providing information related to Emergency Contraceptive usage in Chile.  We also thank Valentina Jorquera Samter, Jos\'e Mora Castillo and Kathya Tapia Schythe for excellent research assistance.  We acknowledge institutional support from ANID of the Government of Chile in funding the Millennium Nucleus for the Study of Life Course and Vulnerability (MLIV), grant number NCS17\_062. The authors gratefully acknowledge FONDECYT Chile, grant number 1200634 (Clarke) and grant number 1190483 (Salinas) for financial support.    This paper subsumes a previous version entitled ``Access to The Emergency Contraceptive Pill Improves Women's Health: Evidence from Chile''. Replication materials for all results in this paper are available at \url{https://github.com/damiancclarke/pillHealth}.}}
+\author{Damian Clarke\thanks{Department of Economics, Universidad de Chile, IZA and MLIV. Address: Diagonal Paraguay 257, Santiago, Chile. Contact: dclarke@fen.uchile.cl.} \and Viviana Salinas\thanks{Institute of Sociology, Pontificia Universidad Cat\'olica de Chile and MLIV. Address: Av. Vicu\~na Mackenna 4860, Macul, Santiago Contact: vmsalina@uc.cl.}}
+\date{\today}
+
+\begin{document}
+\pagenumbering{gobble}
+\setcounter{page}{-0}
+\begin{spacing}{1.25}
+  \maketitle
+  %107 words.
+  \begin{abstract}
+    We examine the sharp expansion in availability of the emergency contraceptive pill in Chile
+    following legalised access through municipal public health-care centres.  Combining a number
+    of administrative datasets on health outcomes and pharmaceutical use, and using
+    event study and difference-in-difference style methods, we document that this
+    expansion improved certain classes of women's reproductive health outcomes, notably
+    reducing rates of abortion related morbidity.  These improvements are largest 
+    in areas of the country in which the rollout of the pill was largest.  We also document 
+    some evidence that refusal to grant the pill upon a women's request is linked with a worsening in reproductive health outcomes.
+  \end{abstract}
+
+  \noindent JEL Codes: I18; J13; K38; H75. \\
+  Keywords: Emergency Contraceptives; Maternal Morbidity; Abortion; Event studies; Difference-in-differences; Public health. \\
+\end{spacing}
+\clearpage
+
+\pagenumbering{arabic}
+\begin{spacing}{1.9}
+\section{Introduction}
+This study examines whether publicly subsidised access to the emergency contraceptive (EC) pill can impact maternal health.   Contraceptive use has been linked with an improvement in maternal health indicators, at least when considering survival \citep{Clelandetal2012,StoverRoss2010}.\footnote{Maternal mortality has received considerably more attention in the literature \citep{Loudon2000}, and is often referred to as the ``tip of the iceberg'', with the remaining mass consisting of the many events of maternal morbidity. For every woman who dies due to causes related to child birth, 20--30 more experience events inducing chronic morbidity with ongoing sequelae \citep{Reichenheimetal2009,Firozetal2013}.  As such, in this study we focus principally on morbidity outcomes.} \citet{BongaartsWestoff2000} had formerly proposed the idea that increasing contraceptive use could reduce abortion, an idea that more recently has been supported by the work of \citet{MillerValente2016}, who point to modern contraceptives acting as substitutes for abortion. What's more, there is clear evidence that unsafe abortion significantly impacts maternal health and survival \citep{unitedabortion,Grimes2006} as well as evidence in the medical literature that abortive agents bought on the black market\footnote{Or even over the counter in the case of misoprostol, which, while designed to treat stomach ulcers, has an off-label effect of inducing abortion in pregnant women.} are used in the absence of legal alternatives (see eg \citet{Grimes2006}). Thus, a causal chain could plausibly exist which is that the availability of the EC pill reduces clandestine abortions, and the reduction in clandestine abortions results in improvements in health outcomes.  
+
+
+To empirically test for a link between EC pill access and maternal health, we focus on the sharp expansion in availability of the EC pill in Chile over the first two decades of the 21\textsuperscript{st} century.  We seek to determine whether this availability resulted in reductions in key maternal morbidity events by examining legislative reform which made the EC pill available for free to any women enrolled in the public health system.  In the entirety of the period under study, abortion was completely illegal in Chile, and our working hypothesis is that the EC provides an alternative post-coital contraceptive option for women, potentially avoiding clandestine and unsafe abortions.  In line with this, our key maternal health measures are those caused by unsafe abortion, in particular inpatient visits classified as abortion related morbidity.  We also discuss the impact on other outcomes such as haemorrhage in early pregnancy.  We focus on the large number of non-mortal hospital visits (i.e. morbidity), though additionally document effects on mortality.
+
+While we aim to continue a line of research which considers the impact of modern contraceptives on women's health, to our knowledge, this paper is the first study to examine the impact of access to the EC pill on maternal health.  This study takes advantage of universal microdata on full inpatient visits, as well as variation in the availability of EC pill over time by municipalities within Chile, providing a credible estimate of the impact of the EC pill.  Using recent advances in  difference-in-differences style models and event study methods  we are able to control for all fixed characteristics at the level of municipalities and time, while also controlling for additional potential confounders, namely, political characteristics of each municipality, % and its mayor,
+and other contraceptive coverage.  Our estimates suggest that upon arrival of the EC pill, municipalities which disburse the EC pill see improvements in maternal health outcomes (specifically abortion related morbidity) compared with municipalities which had not yet provided the EC pill.  We observe that this effect is most marked in municipalities where there was particularly high request and granting of the EC pill.  We additionally observe some suggestive evidence that the opposite result obtains when EC requests are refused: conditional on fixed municipal and time characteristics, abortion morbidity is higher when a municipality denies requests for access to the EC pill.
+
+The roll-out of the EC pill in the Chilean public health system is emblematic, given that there was sub-national variation in availability over a number of years, and an absence of alternative post-coital reproductive control outcomes in the country.  This paper joins a small number of studies examining the EC pill in Chile including recent work by \citet{NuevoChiqueroPino2019}, considerably updating and extending earlier work of \citet{BentancorClarke2017}, as well as a number of studies examining the EC pill's impact in the USA, UK and other countries \citep{Grossetal2014,Durrance2013,GirmaPatton2006,GirmaPatton2011,Mulligan2015,Moreauetal2009,Huetal2005}.  These earlier studies, though, have not analysed maternal morbidity---instead focusing on the impact of the EC pill on fertility rates, abortion rates, rates of unplanned pregnancy, and the prevalence of sexually transmitted infection.
+
+In what remains of the paper, we first provide some background on the nature of the expansion of the EC pill in Chile.  We then describe the various sources of administrative data used in this paper in section \ref{scn:data}, and the estimation methodology in section \ref{scn:methods}.  We provide all results in section  \ref{scn:results}, and a brief discussion and conclusion in section \ref{scn:disc}.
+
+\section{Background on The EC Pill and its Rollout in Chile}
+\label{scn:background}
+The EC pill is a post-coital contraceptive which can be taken in the day(s) following unprotected sexual intercourse to reduce the likelihood of conception \citep{vonHertzenetal2002}. In Chile, the rollout of the EC pill followed a lengthy legislative process resulting in periods of sub-national (municipal) variation in availability of the medication. We note that abortion was illegal in Chile for the entire period of interest of this study, only being legalised in the case of three limited circumstances in 2017.\footnote{A discussion of induced abortion in Chile over this period is provided by \citet{PradaBall2016}. This report cites figures suggesting anywhere between 60,000-300,000 clandestine abortions p.a., and highlights that there have been few changes in the methods of clandestine abortion used from 1990 onwards, apart from growing use of misoprostol.}  A full discussion of the rollout is provided in \citet{CasasBecerra2008} and \citet{NuevoChiqueroPino2019,BentancorClarke2017} (whose empirical strategies we broadly follow).  Here we provide a brief overview of the rollout and the way this interacts with our identification strategy (discussed below).  Interested readers are directed to Online Appendix \ref{Ascn:background}, or the aforementioned references, where fuller details are available.
+
+Until 2008, the EC pill was completely unavailable in Chile, or available for only very short temporal windows and in limited cases (such as in case of rape).  From 2008, a legal finding implied that mayors in each of the country's 346 municipalities could dictate whether the EC pill was available from local primary care clinics \citep{Didesetal2009,Didesetal2010,Didesetal2011}.  There were subsequent legal challenges to EC pill availability, but in practice around half of Chilean municipalities reported that they disbursed the EC pill in the years following the 2008 finding, with the remainder either not providing the EC pill, or only providing it in very restricted circumstances.  This municipal variation in EC pill availability lasted for around three years.  In these years, there were a number of legal findings which gradually opened access to the EC pill to the entire country. For the sake of our analysis, we consider the period of 2009--2011 to be the period in which there is considerable municipality-level variation in EC pill availability.  The end of this period in 2011 was with the passage of national law 20533 which modifies the sanitary code to allow midwives to provide the EC pill.
+
+The fact that midwives were explicitly allowed to provide EC pill is important given that all EC pill requests through the Chilean public health system are channelled through midwives.  Public provision of the EC pill in Chile is completely free, with users simply required to request the medication at their local primary care clinic.  To do so, they must make an appointment with a midwife at the clinic, as midwives\footnote{These are known as \emph{matronas/matrones} (if female/male) and play a key role in the provision of reproductive health and contraceptive advice (see eg \citet{FinleyBabaetal2020} for discussion).} are indicated by law as responsible for providing sexual health advice and contraceptive access \citep{Congress2010}.  This is the same procedure necessary to request any publicly provided contraceptive method including condoms, oral contraceptive pills or injectable contraceptives (which are all also freely provided).
+
+Following 2011, according to the National Norms of Fertility, all midwives are obliged to provide the EC pill upon request provided that the sexual encounter occurred within the last 5 days.\footnote{The contents of these norms were confirmed in a structured interview with a midwife.}  Prior to the laws clarifying access (discussed at more length in Appendix \ref{Ascn:background}) requests were frequently rejected in line with the Mayor's decision to provide or not provide the EC pill in the municipality \citep{CasasBecerra2008}.  The only requirement for request is that women should be enrolled in the public health system, and associated with a health centre in the municipality.  In Chile in the period under study around $3/4$ of all fertile-aged women are enrolled in the public health system, with the remaining $1/4$ enrolled in a the private health system.\footnote{For example, in 2010, figures from FONASA, the public health insurance system, show there were 3,507,325 women enrolled, and figures from the National Institute of Statistics of Chile estimate the total population of fertile-aged women was 4,574,965.  This suggests 76.7\% of fertile-aged women are enrolled in public health.  On average, users of the public health system in Chile have a lower income, though the public health system is widely used across income quintiles \citep{Frenzetal2013}.  All costs related to child birth and prenatal care are covered by the public health system, with users not required to cover out of pocket costs provided they are enrolled in FONASA.}  In the case of the quarter of women who have private health insurance, access to the EC pill required a prescription and could be purchased in a pharmacy at prices of around 18 USD \citep{CasasBecerra2008}.  To our knowledge, comprehensive data on private provision of the EC pill is not available, though anecdotal evidence suggests limited availability in pharmacies around 2008--2009 \citep[p.\ 45]{Congress2010}.  It is important to note that while our aim in this paper is to assess the impact of the free public provision of the EC pill, the legal findings do have impacts on private access to the EC pill through pharmacies, as the initial legal finding clarified that pharmacies could, if desired, provide the EC pill \citep[p.\ 5]{NuevoChiqueroPino2019}. We discuss how private provision interacts with our identification strategy below.
+
+\section{Data and Methods}
+\subsection{Data}
+\label{scn:data}
+We construct a municipality$\times$year dataset based upon various sources of
+administrative health records and measures of EC pill availability.  We include a number of time-varying controls to capture potential determinants of municipal-level rollout.\footnote{The municipal determinants of the decision to provide the EC pill have been discussed in \citet{BentancorClarke2017}.  Among a large number of variables considered, EC pill provision was only robustly correlated with mayoral party, with provision less likely where mayors represented `conservative' parties.  As we discuss in the methods section, our estimates later in the paper do not rely on mayor characteristics being unrelated to the decision to provide the EC pill, just that they are not systematically related to both the precise moment the EC pill was made available, and other investments in maternal health.}
+Our data cover the 15 year period from 2002--2016, which we consider as (i) the pre-EC pill period of 2002-2008 which is used as a baseline, (ii) the rollout period of 2009--2011 where we can measure municipal-level variation in availability, and (iii) the full supply period of 2012--2016.  In both the ``rollout'' and ``full supply'' periods we perfectly observe the number of EC pills disbursed by the Chilean public health system, as we discuss at more length below.
+
+\paragraph{Measures of maternal health}
+Our object of interest, maternal morbidity, is measured by two outcomes: the rate of abortion related morbidity and the rate of hemorrhage early in pregnancy (number of cases per thousand fertile-aged women). Abortion-related causes is a variable often examined in the wider literature when considering the impacts of unsafe abortion and includes all forms of morbidity classified as one of ICD-10 codes O02-O08 (for instance, spontaneous abortion and complications following induced terminations). This coding is provided in \citet{SinghMaddow2015}. Secondly, we consider ``haemorrhage prior to 20 weeks of gestation'' (ICD-10 code O20). This outcome is of interest (a) given its importance as one of the major complications of unsafe abortions \citep{Gerdtsetal2013,WHO2018} and (b) given that it may plausibly respond to the arrival of the EC pill, due to the widespread use of misoprostol as an abortifacient agent in clandestine abortions prior to the availability of the EC pill in Chile. Discussions of the relationship between misoprostol use, clandestine abortion, and haemorrhage are provided in \citet{ClarkeMuhlrad2018,Pouretteetal2018,Grimes2006}. The key potential mechanism of action is that safe EC pill usage may crowd out unsupervised and potentially unsafe use of misoprostol, which can result in severe bleeding.  Estimates from medical literature suggest that 22\% of deaths due to haemorrhage in the first trimester are caused by abortion \citep{HaeriDildy2012} (similar values are not reported for non-mortal complications) lending plausibility to this suggested link.  We generate municipality level rates of these events from high-quality micro-data registers recording all inpatient hospitalizations in the country (both in the public and private systems), which are available from 2001--2017.  These records consist of an observation for each inpatient stay, and include a limited number of covariates such as patient's sex and age, the ICD-10 code registering the reason for the stay, and the date of entry and exit.\footnote{We observe the universe of 26.2 million hospital visits occurring over this period, 99.74\% of which are correctly matched to the municipality of residence of the patient. These data unfortunately don't include richer covariates such as religion or ethnicity.} While we capture any hospitalization using this data, we will \emph{not} observe any ambulatory visits to primary care clinics.  In general these visits will be far less serious.  It is however important to note that all estimates in the paper do not account for these cases.\footnote{While we do not have access to microdata for ambulatory visits, macro-level information shows that there are many such visits in the country each year.  For example, in 2016 nationwide there were 755,547 ambulatory visits classified as gynecological check-ups.  This compares to 299,855 hospitalizations for reasons related to maternal health in this period.  Thus, our microdata captures only one (important) margin of healthcare utilization.  It is worth noting, that for both principal morbidity outcomes (haemorrhage and abortion related causes), a large majority of cases would be expected to be treated in hospital, as laid out in the Government's technical treatment guidelines \citep{Minsal2011}.}
+
+
+
+
+\paragraph{Measures of EC pill rollout and usage}
+We generate two measures of rollout and usage of the EC pill in Chile, which is our principal independent variable of interest. For the rollout, our first indicator is a dummy variable, coming from a series of telephone surveys conducted by FLACSO between 2009--2011 \citep{Didesetal2009,Didesetal2010,Didesetal2011}. In these surveys, local health centres in each municipality were asked whether they prescribe the EC pill, and under what circumstances. If the centres respond that they do, the municipality is classified as providing EC. If they report that they do not, or that they only provide it in the limited case of rape, then they are classified as non-pill municipalities.  Secondly, for measuring intensity of use, we generate a rate of pill disbursements and a rate of pill rejections, by harmonizing previously unused administrative data provided by the MoH. In the case of rejected pill requests, these only began being recorded in 2010, so data on this is not observed in 2009. A graph of the number of municipalities recorded to allow EC pill disbursement, and the actual disbursements according to MoH Data is provided as Figure \ref{fig:rollout}.  In Appendix Table \ref{tab:corrPills} we document that these sources are in general agreement.  We note that in a small number of cases, municipalities which report that they will not prescribe the EC pill in telephone surveys actually do prescribe the EC pill.  In these cases, we update the measure of availability such that these municipalities are correctly recorded as allowing the EC pill.
+
+
+
+\paragraph{Other municipal level records} Finally, we collected or generated a number of other data sources at the municipal$\times$year level. These are (a) the population of fertile-aged women (provided by the National Statistical Institute); (b) the identity, sex and party of each municipal mayor and his/her vote share (from the Electoral Service); (c) administrative records on all other contraceptive disbursements through the public health service, and placebo health outcomes generated from the same administrative health records (male morbidity, and morbidities in the puerperium period).
+
+Combining these data sources, we were able to ensemble a dataset of a maximum of Chile's 346 municipalities over 15 years of data, or 5190 observations/registers. A small number of observations have missing measures in certain periods. In particular, our measure of EC pill availability has 103 missing observations for years in which municipalities did not provide information on their pill disbursement status. Similarly, the measure of refused pills is not recorded in 2009 only.  We document summary statistics in the following section.
+
+
+\subsection{Methods}
+\label{scn:methods}
+We exploit the staggered arrival of the EC pill to different municipalities by estimating
+the following panel event-study specification:
+\begin{equation}
+  \label{eqn:event}
+  Health_{ct} = \alpha_0 + \sum_{j=-8}^{9}\delta_{-j}\Delta \text{EC Pill}_{c,t+j} +
+  X_{ct}^\prime\Gamma + \phi_c + \mu_t + \varepsilon_{ct}.
+\end{equation}
+Here we follow the notation of \citet{Freyaldenhovenetal2018}, where $\delta_{-1}=0$ so that
+our reference period is one year prior to adoption in each municipality.  We are
+interested in the 9 yearly leads and 8 yearly lags of the policy change, where leads capture
+any prevailing trends prior to the reform in earlier versus later-adopting municipalities, and
+lags show the change in health outcomes following EC pill availability. Given variation in
+reform timing, initial leads and lags capture differences in treatment status (treated vs.\
+untreated), while later periods capture pure variation in timing. Year and municipal fixed
+effects $\mu_t$ and $\phi_c$ absorb time- and municipal-invariant factors, and standard
+errors are clustered by Chile's 346 municipalities. As well as capturing any dynamic impacts
+of the reform, for example growing knowledge diffusion, specification \ref{eqn:event}
+provides evidence in favour of parallel (pre-)trends if we can reject that each
+$\delta_{j}=0\ \forall\ j < 0$, given that \emph{prior} to the reform outcomes in both
+treated and untreated municipalities were following similar tendencies.
+
+$Health_{ct}$ refers to average rates of morbidity and $\text{EC Pill}_{c,t}$ refers to
+the availability of the emergency contraceptive pill in municipality $c$ at time $t$.
+We include time-varying controls $X_{ct}$ capturing socio-political characteristics of
+each municipality, as laid out in the Data section, though also show specifications
+without controls.  Observations are consistently weighted by population.\footnote{We do,
+  however, document unweighted results, %in Appendix Table \ref{tab:DDUW} and Figure \ref{fig:eventsUW},
+  but our preferred estimates always weight by population to ensure that estimates are not
+  driven by municipalities with very few hospitalizations where small total shifts can
+  result in very large proportional changes.}  It is important to note that in all cases,
+EC Pill refers to free provision by the \emph{public} health system.  In Chile, following
+the passage of the EC pill laws, the pill was also sold at private pharmacies.  Unlike
+public data, official data on EC pill usage in the private system is not available
+\citep{Fernandezetal2016}. Thus, all estimates refer to the impact of the public reform.
+While we cannot formally assess the impact of private market provision without data on
+disbursements, if private provision fills gaps not met by the public health system
+`spilling over' to areas not yet treated by the public system, our estimates will
+understate the actual full effect of EC pill availability \citep{Clarke2019}.
+
+Panel event study models such as those in equation \ref{eqn:event} have a number of
+significant advantages over standard parametric `single-coefficient' two-way fixed
+effect models of the
+following form:
+\begin{equation}
+  \label{eqn:2wayFE}
+  Health_{ct} =\alpha +  \beta\text{EC Pill}_{ct} + X_{ct}^\prime\Gamma + \phi_c + \mu_t + \varepsilon_{ct}.
+\end{equation}
+where $\text{EC Pill}_{ct}$ is a binary variable indicating the EC pill is available in municipality $c$ and time $t$.  Specifically, they take care of recent critiques that single coefficient models may be biased if effects are heterogeneous over time \citep{GoodmanBacon2018}.  However, recent advances by \citet{ChaisemartinDH2019} propose an estimator to avoid issues relating to heterogeneous impacts over time and time-varying adoption of policies.  We thus follow their proposed $DID_M$ estimator in line with equation \ref{eqn:2wayFE} (full details of this method are included in Appendix \ref{AScn:DIDM}).\footnote{We acknowledge an anonymous referee for suggesting this strategy.}  This estimator consists of comparing outcomes between all units which change their EC pill status to those which have not yet changed, around the time that the policy change occurs.  This is implemented following \citet{dCDHG2019}, where we can observe both immediate changes, and changes over the following two years given the variation in treatment adoption.  We additionally estimate mirrored leads as placebo tests, which implement the same comparisons between changing and non-changing units, but in periods entirely before treatment is adopted.  As well as allowing for a single summary estimate, this method offers the benefit that all identification is drawn off the time period in which the staggered adoption of the EC pill occurred. We consistently conduct inference using a block-bootstrap procedure allowing for within-municipality correlations over time.  We additionally explore one specification where $\text{EC Pill}_{ct}$ is replaced with $\text{Pill Rejected}_{ct}$, indicating whether each municipality \emph{refused} to disburse requested EC pills in a given year.
+
+We finally propose a series of models to take advantage of the \emph{intensity of use} of the EC pill. The first is a fully interacted event-study
+specification, where we re-estimate equation \ref{eqn:event}, however we now estimate a
+series of lags and leads for three municipality types, (low/medium/high intensity)
+based on terciles of EC pill disbursements from official MoH disbursement data.
+Specifically:
+\begin{equation}\label{eqn:eventIntens}
+  Health_{ct} = \alpha_0 + \sum_{i=1}^3\sum_{j=-8}^{9}\delta_{i,-j}\Delta \left(\text{EC
+    Pill}_{c,t+j}\times\text{Pill Intensity}=i\right) + X_{ct}^\prime\Gamma + \phi_c + \mu_t
+  + \varepsilon_{ct},
+\end{equation}
+where all details follow equation \ref{eqn:event}, however we now stratify by municipal treatment intensity (indexed with $i$
+  here).  Controls $X^\prime_{ct}$ are included separately for each tercile exposure
+  group.\footnote{The separation into terciles of intensity of EC pill usage is an
+  arbitrary choice.  We could present alternative groups, however this complicates
+  presentation of results challenges statistical power, as such
+  we limit results here to three policy-specific exposure groups.} This model extends equation \ref{eqn:event} to examine whether any health impacts are larger in areas with more intensive usage of the EC pill.  Note that here we are simply breaking down average impacts from equation \ref{eqn:event} into intensity-specific groups in a single model, allowing for treatment heterogeneity where groups are constant over time.  Here heterogeneity is considered by intensity of policy adoption.  Such models documenting heterogeneity in a DD setting are frequently estimated, see for example \citet{BhalotraVenkataramani2015} (by race/age), and \citet{MyersLadd2020} (by exposure time).  Finally, for completeness, we additionally document effects based on a single-coefficient two way FE model, where the EC Pill indicator from \ref{eqn:2wayFE} is replaced with a measure of the rate of pill disbursements in a given municipality per 1000 women:
+\begin{equation}
+  \label{eqn:DD}
+  Health_{ct} = \alpha + \beta \text{Pill Disbursements}_{ct} + X_{ct}^\prime\Gamma +
+  \phi_c + \mu_t + \varepsilon_{ct}.
+\end{equation}
+Here, once again any municipal-specific or time-specific factors are captured by
+respective fixed effects, and $\beta$ captures the intensive margin impact of
+EC pill availability.  As in the case of equation \ref{eqn:2wayFE}, rather than estimate this model using OLS, we follow the \citet{ChaisemartinDH2019} $DID_M$ procedure, where we additionally consider
+one specification where $\text{Pill Disbursements}_{ct}$ is replaced by
+$\text{Pill Rejections}_{ct}$ to consider the (extensive margin) impact of rejected EC pill requests. Additional details related to estimation are provided in Appendix \ref{AScn:DIDM}.
+
+
+\section{Results}
+\label{scn:results}
+\subsection{Descriptive Statistics}
+We provide descriptive plots of the two principal health outcomes over time in Figure
+\ref{fig:trendsMorb}.\footnote{Plots by quinquennial age group are provided in Appendix
+  Figures \ref{fig:abort5y} and \ref{fig:haem5y}.} In the case of abortion-related morbidity
+(panel (a)), while there
+is a slight downward trend from 2002-2008, there is a clear and sharp reduction following
+the rollout of the EC pill in Chile in 2009.  In the case of haemorrhage early in pregnancy
+(panel (b)), there is considerably less evidence suggestive of a trend-break, with a
+general reduction in cases observed from 2002 to 2017.  
+
+
+Descriptive statistics of all morbidity and contraceptive measures by municipality and
+year are provided in Table \ref{tab:sumstats}.
+We observe that morbidity for abortion early in pregnancy is considerably more common
+than haemorrhage, at around 5.8 and 1.3 cases per 1,000 fertile-aged women respectively.
+Rates of morbidity in the puerperium are a similar order of magnitude to abortion
+early in pregnancy, at 5.4 cases per 1,000 fertile-aged women.\footnote{As we discuss
+  in section \ref{scn:robustness}, we will consider this in placebo tests.} On average,
+each municipality prescribes 22 EC pills per year, though larger municipalities prescribe
+many more, with maximum disbursements of 1,029. The number of pills
+refused is considerably lower, at around 2.4 per municipality on average, though once again
+we note that there are municipalities who refuse many requests, with a maximum of 914
+per year.
+
+
+\subsection{EC Pill Rollout and Morbidity Outcomes}
+\paragraph{Binary Treatment Measures Capturing EC Roll-out}
+In Figure \ref{fig:events} we present main event study specifications following equation \ref{eqn:event}, reporting 90 and (as standard) 95\% confidence intervals.
+Here we consider a baseline model with time-varying controls, and discuss a number of alternative specifications including models without controls in section \ref{scn:robustness}.
+Figure \ref{fig:events} panel (a) displays the event study for rates of abortion morbidity.  All pre-EC pill leads are observed to be close to zero and quite flat, with no significant differences observed between early and later adopters in the pre-reform period.  In the post-reform period we observe a gradual reduction occurring with a downward movement observed even the first year of the EC pill's adoption in a given municipality.  However, given that standard errors are quite large, these impacts are only observed to be significant from around the fourth year post-EC pill adoption.  The effect size grows constantly over time, in line with the expanding availability of the EC pill in the country (refer to Appendix Tables \ref{tab:Npills}-\ref{tab:NpillsLag}).  In the first year of EC pill adoption, point estimates suggest an (insignificant) 0.2 fewer cases of abortion related morbidity per 1,000 women, growing to 1 fewer case per 1,000 women 4 years post-adoption, and slightly more than 2 fewer cases per 1,000 women 8 years post-adoption. 
+
+In Figure \ref{fig:events} panel (b) we present results for rates of haemorrhage early in pregnancy, observing no statistically significant change post-EC pill reform.  This suggests that health improvements owing to EC pill availability in this context are channelled through fewer observed cases of abortion related morbidity in hospitals, rather than a fall in cases classified as haemorrhage early in pregnancy.\footnote{Note from Table \ref{tab:sumstats} that the total rate of abortion related morbidity is around 5 times higher than cases classified as haemorrhage early in pregnancy.}  While in general our preferred specifications are weighted based on the population of women in each municipality, we present unweighted specifications in Appendix Figure \ref{fig:eventsUW}, observing similar patterns in the case of abortion related morbidity (a reduction post-EC rollout) however with slightly wider confidence intervals, however a slight reduction in the case of heamorrhage early in pregnancy when not weighting by the population of women.  It is important to note that in the case of haemorrhage early in pregnancy this is suggestive of impacts observed in smaller municipalities which receive relatively larger importance in unweighted specifications.
+
+
+In Figure \ref{fig:DIDM} we present alternative $DID_M$ estimates which explicitly contrast changers with non-changers in the period surrounding the reform.  In panels (a) and (c) we present full $DID_M$ dynamic and placebo estimates quantifying the impacts of EC pill availability on abortion related morbidity and haemorrhage respectively (panels (b) and (d) are discussed in the following paragraphs).  Each coefficient compares morbidity rates between municipalities who gained access to the EC pill, and those whose status did not change.  Pre-treatment years (-3, -2 and -1) are placebo estimates given that they compare similar changes in periods \emph{before} the adoption took place.  In the case of post-treatment lags (0, 1 and 2), estimation is driven by areas whose treatment status remains constantly switched on for 1, 2 and 3 years respectively.\footnote{Here, given that identification is drawn entirely by units which \emph{change} treatment status, and changes in treatment status all occur in some period between 2008-2011, we cannot estimate greater than 3 pre- and 3 post-treatment indicators.}  In the case of abortion related morbidity, we observe results broadly in line with those documented in event studies.  While pre-adoption leads are small and centred around zero, an immediate reduction is observed the year EC pill became available, growing to significant impacts at slightly over 1 fewer case per 1,000 women 2 years post-reform.  In this case, the global estimate considering all dynamic leads following \citet{dCDHG2019} is estimated at -0.837 fewer cases of abortion per 1,000 women.  Note that this effect is sizeable when considering the total number of cases in the population, accounting for slightly more than 12\% of inpatient cases relating to abortion in the pre-reform period.  We return to discuss effect sizes more completely in Section \ref{sscn:effectsize}.  In the case of haemorrhage early in pregnancy, similar patterns are observed to those from event studies, with both insignificant placebo and post-treatment indicators, once again suggesting no significant change in rates of haemorrhage flowing from the EC pill availability.
+
+In Appendix Table \ref{tab:DD} we present total treatment effects for each of these variables (pooling all post-treatment indicators) in each quinquennial age group from 15--19 years up to 45--49 years.  Column (a) presents the global summary of panels (a) and (c) of Figure \ref{fig:DIDM}.  We observe that the global impact of -0.837 in the case of abortion related morbidity is driven mainly by younger women, with significant impacts among the 15--19 year old population and the 25--29 year age group.  In the case of haemorrhage early in pregnancy, in weighted specifications we observe insignificant estimates across the entire age spectrum.  In Appendix Table \ref{tab:DDUW} we present similar estimates without weighting by municipal populations, here observing reductions in abortion related morbidity, and again, some evidence suggestive of reductions in haemorrhage when population weights are not applied.
+
+
+\paragraph{The Impact of Rejection of EC Pill Requests on Outcomes}
+Panels (b) and (d) of Figure \ref{fig:DIDM} consider the role that \emph{rejected} requests for the EC pill plays on maternal health outcomes.
+We present identical models as those presented in panels (a) and (c), but rather than considering whether a municipality officially allows EC pill disbursements, examine the impact of municipalities officially rejecting EC pill requests from women.  In the case of abortion related morbidity, we observe opposite impacts to those described based on EC pill \emph{availability}.  Where municipalities ever reject EC pill requests, we observe slight increases in the rate of abortion related morbidity, with a point estimate of 0.176 additional cases in the post EC-period.  This point estimate accounts for around 3 percent of the baseline rate of abortion related morbidity nationwide.  In turning to haemorrhage early in pregnancy, while a similarly signed effect is observed with a large magnitude (0.074 \emph{more} cases following EC pill rejection), in this case effects are not statistically significant. 
+
+
+\paragraph{Combining Binary Treatments with Intensity of EC Pill Usage}
+\label{sscn:intensity}
+Finally, we turn to a number of models to consider the \emph{intensity} of use of the EC pill and the impact of total disbursements on health outcomes.  In Figure \ref{fig:AI}, we document that high-intensity pill municipalities have the largest reduction in abortion related morbidity following the introduction of the EC pill.  Indeed, when stratifying by the intensity of EC pill rollout, only in this highest intensity group are effects immediately significant, with point estimates generally begin the most negative among all groups.  In the first three post-EC pill periods, reductions of between 0.8 to 1 fewer case of abortion related morbidity are observed per 1,000 women.  In medium-intensity areas significant effects are also observed, though they emerge more gradually, while in low-intensity areas significant effects are never observed.
+We replicate these results for haemorrhage early in pregnancy in Figure \ref{fig:HI}.  In this case, and in line with the fact that we never observe significant impacts in the entire population on rates of haemorrhage early in pregnancy, we observe no significant effects at any point (either pre- or post-treatment) or in any group -- additional evidence suggesting that effects are largely focused on maternal morbidity cases classified as owing to abortion.
+
+
+
+For completeness, we also present $DID_M$ estimates following equation \ref{eqn:DD} where our treatment variable is now the number of pills disbursed per 1,000 women.  These models are presented in Table \ref{tab:DIDM}.  Table \ref{tab:DIDM} provides a summary of all $DID_M$ models, presenting first, for comparison, the binary models discussed above (in column 1 for EC pill availability and 3 for EC pill rejection), and then using continuous measures in columns 2 and 4.  In column 2, we consider $DID_M$ estimate following \citet{ChaisemartinDH2019} where instead of a simple binary availability measure we consider a treatment measure capturing the number of EC pills disbursed per 1,000 women in the municipality.  Then in column 4 we consider a similar model, but rather than EC pill disbursements per 1,000 we consider EC pill rejections per 1,000 women.  
+
+In panel A column 1 we observe the (previously discussed) clear reduction in rates of abortion following EC-pill availability.  In column 2 we also observe that the point estimate (of -0.062 fewer cases) is suggestive of \emph{larger} reductions in abortion related morbidity in municipalities with more EC pill disbursements.  However, these continuous models are estimated with considerable imprecision, suggesting quite wide confidence intervals, overlapping zero.  Broadly similar patterns are observed when considering EC pill rejections in columns 3 and 4.  There is evidence of a clear and significant (at least at 90\%) increase in rates of abortion when municipalities refuse to disburse EC pills, and rates of abortion related morbidity are estimated to be higher when rates of EC pill rejection are higher, but this latter `continuous' effect is not estimated with sufficient precision to reject a null of no gradient in levels of intensity.
+
+
+
+
+
+\subsection{Effect Sizes in Context}
+\label{sscn:effectsize}
+Given estimates presented up to this point, it is important to ask about how these effect sizes map into real reductions in morbidities. 
+We place estimated effect sizes in context here, also providing a back of the envelope calculation of their implications for healthcare costs.  It is important to note as a caveat here that this discussion is all based on extrapolating \emph{marginal} estimates presented from previous analyses, and is only based on pills disbursed by the \emph{public} health system.  In this analysis we will document a calculation based on $DID_M$ models which provide a single coefficient estimator, though we note that these are consistent with estimates from event studies, given the similar magnitude in average coefficients across the post-EC period.  We will also focus this analysis solely on the number of cases of abortion related morbidity, given that we estimate no significant impact of EC pill availability on rates of haemorrhage early in pregnancy.  
+
+Thus, we consider that the estimated effect of EC pill rollout on rates of abortion related morbidity is $-0.837$ fewer cases per 1,000 women (Figure \ref{fig:DIDM}, panel (a)) in a municipality$\times$year panel.  From Table \ref{tab:sumstats} we can convert this into a municipal level estimate impact of:
+\[
+\frac{-0.837 \text{ cases of abortion morbidity}}{1,000 \text{ residents}}\times  13,016.5 \frac{\text{residents}}{\text{ municip.}}=-10.89 \frac{\text{ cases of abortion morbidity}}{\text{municip.}}.
+\]
+From Figure \ref{fig:rollout}, the rollout occurred gradually, eventually reaching all 346 municipalities.  We can thus calculate a back of the envelope estimate of avoided cases due to the EC pill as this municipal-level reduction per year for each municipality, and each year covered by the EC pill.  In this way, we calculate a total number of avoided cases of abortion related morbidity of 27,900 in the period we analyse, due to the EC pill rollout.\footnote{This is simply $10.89\times(236+281+315+346\times5)$, where the values in parentheses refer to the municipalities covered in each post EC pill year.}  Finally, note that as documented in Appendix Table \ref{tab:Npills}, in total there were 112,962 EC pills disbursed by the public health care system in the period 2009-2016, suggesting that for each 4 EC pills disbursed, a single case of abortion related morbidity was avoided.
+
+It is important to note that this value is large, however considerable caution should be taken to interpret this in the guise of impacts per each EC pill disbursed, given that the public reform opened the door also for provision of the EC pill by the private sector through pharmacies.  While comprehensive data on availability of the EC pill in the private sector is not available, it is likely to be of importance, especially after initial uncertainty related to the reform's implications were clarified.  Indeed, from 2015 onwards, the EC pill is available in pharmacies \emph{without prescription} suggesting that the values discussed above should be viewed as \textbf{strict upper bounds} on the number of avoided cases per pill disbursed.  The operative mechanism by which EC pill provision could impact rates of abortion morbidity is that EC pills provide a safe post-coital contraceptive.  Prior to the availability of the EC pill in Chile, no legal alternatives existed.  According to \citet{PradaBall2016}, estimates suggest anywhere between 60,000-300,000 abortions are performed per year in the country, frequently requiring formal post-treatment care, suggesting that if the EC pill serves to avoid undesired pregnancies this could map directly into lower rates of clandestine abortion and post-abortion complications.  
+
+
+
+
+These rough estimates can be used to provide a back of the envelope calculation of the cost savings implied by the EC reform.  We collated the cost of the EC pill as paid by the MoH from public public government records.\footnote{These records were compiled from CENABAST, (the National Centre for Medical Provision), and are available for 9 different bulk purchases of the EC pill from 5 different suppliers from between 2015--2020.  We searched for all purchases using the generic name Levonorgestrel, which covers 3 different brands supplied (Cerciora, Escapel-2, and Pregnon).
+}  The unitary price for a single EC dose varied from as low as 886 Chilean Pesos (CLP) to as high as 5,676 CLP (or 1.50 USD to 8.22 USD based on exchange rates at the time of purchase), with an average price of 3,379 CLP (4.75 USD).
+While it is difficult to estimate the full costs of an inpatient visit to the health system, estimates presented by the Chilean Budgetary Department suggest that a single night of hospitalisation on average costs 43,842 CLP \citep{IAS2016}.  The administrative data used in this paper shows that the average hospitalisation for abortion related morbidity resulted in 3.4 nights.   Bringing this all together, we can determine a back of the envelope estimate of total costs for pills disbursed as $112,962$ pills $\times$ $3379$ CLP/pill = 381.83 million CLP, and total savings in hospitalisations as 27,900 cases of abortion related morbidity $\times$ 3.4 nights per case $\times$ $43,842$ per night = 4,158 million CLP.  These rough estimates, which only include the direct savings in terms of hospitalisation suggest that the provision of EC pills may have paid for itself various times over.\footnote{This equates to  around 50,000 USD based on prevailing exchange rates in 2017.  This is a clear lower bound, given that the EC pill has generated other cost savings for the health system, such as fewer births.}
+
+
+
+
+
+
+  \subsection{Placebo Outcomes, Alternative Explanations and Additional Tests}
+  \label{scn:robustness}
+  Despite the event-study evidence and lack of pre-trends, we still may be concerned that these results are capturing systematic differences in prevailing health outcomes within municipalities. 
+  If for example, at the same time the EC pill was adopted municipalities engaged in general health-promoting policies or more aggressive contraceptive campaigns, our estimates may capture this, rather than a true EC pill effect.
+
+  We examine this in a number of ways.  First, in all results documented in the paper we include controls for a mayor's party, gender, and vote share upon election.   Recent work by \citet{NuevoChiqueroPino2019}, which provides a comprehensive analysis of the EC pill rollout and its impacts on other contraceptive use, suggests that the EC pill in Chile may have---beyond any direct effect---also had a technological change effect given that it caused shifts towards more modern contraceptive methods.  We have collected and systematised administrative records on the full coverage of contraceptive methods used in Chile for the entire population covered by the public health system.  These data record all freely provided contraceptive methods disbursed by the state.  In Figure \ref{fig:contraceptives} we plot trends in alternative contraceptive methods used in Chile between 2003 and 2017 based on these administrative data. 
+  It is interesting to note in Figure \ref{fig:contraceptives} that there has been a clear and gradual shift in contraceptive methods used within the public health system in the country, in particular, a steady shift away from the copper IUD and towards injectable birth control methods.  We have thus additionally included time-varying controls capturing coverage of other modern contraceptive methods in all the models displayed up to this point in the paper.\footnote{We note tha data that we could harmonize on full contraceptive measures is only available at the level of each health service in Chile, while our principal regressions are each based on data at the level of each municipality.  Each health service includes multiple municipalities, and so the rates of birth control coverage refer to average coverage at the level of each health service, rather than each individual municipality.
+    In Appendix Figure \ref{fig:healthServices} we document the correspondence between health services and municipalities within the country.}  
+
+
+  We do, however, document that our results are not driven by these particular control variables and modelling choices.  In Appendix Figures \ref{fig:abortEventCC}, \ref{fig:haemEventCC}, \ref{fig:AICC}, \ref{fig:HICC} we replicate our analysis of the health impacts of the EC pill unconditional on time-varying controls and observe that in each case, the documented findings are substantively similar.  We also documented that the previously documented results are not sensitive to including only political controls (refer to online Appendix Figures \ref{fig:abortEventPC}, \ref{fig:haemEventPC}, \ref{fig:AIPC} and \ref{fig:HIPC}, corresponding, respectively, to Figures \ref{fig:abortEvent}, \ref{fig:haemEvent}, \ref{fig:AI} and \ref{fig:HI}).
+
+  More generally, to provide a test of the idea that these results may be capturing general improvements in health rather than anything related to the EC pill, we conduct a number of placebo tests.  These tests consist of estimating identical specifications following equation \ref{eqn:event}, however now using health outcomes which do not plausibly depend on EC pill availability.  The first of these is a pure placebo test where we consider rates of male morbidity between the ages of 15-49.  This is an analogous age to the reproductive health outcomes considered previously, however for men rather than women.  We consider an alternative placebo based on morbidity during the puerperium period for women aged 15-49.  While this will not reflect the mechanism discussed earlier in which the EC pill can act as a substitute for clandestine abortion, it is not necessarily a perfect placebo if the EC pill impacts the \emph{composition} of cohorts of mothers.\footnote{We note however that \citet{BentancorClarke2017} find relatively little evidence for changing composition of mothers following the EC pill, at least in terms of education and age.} 
+
+
+  In Figure \ref{fig:PlaceboM} we present these results.  Figure \ref{fig:PlaceboM}(a) documents the impact of the roll-out of the EC pill on all-cause male morbidity.  We observe no significant impacts, with results clustered around 0 cases per 1,000 men (the mean for this outcome displayed in Table \ref{tab:sumstats} is around 30 inpatient visits per 1,000 men per year), suggesting the findings discussed earlier in the paper are not simply proxying generalised improvements in health occurring earlier in municipalities which adopted the EC pill earlier.  We document results for complications in the puerperium in Figure \ref{fig:PlaceboM}(b).  Once again, we observe no statistically significant lag or lead terms, although point estimates are slightly noisier.  These results again suggest that the reproductive health outcomes documented earlier are not simply proxying general improvements in health, or even general improvements in maternal health, but are specific to causes early in gestation, consistent with the EC pill acting to crowd-out unsafe health behaviours early in pregnancy.  We additionally note that these placebo tests hold even when considering intensity of use of the EC pill and $DID_M$ models.  Identical event studies estimated by different terciles of EC pill use (as presented for the main outcomes in Figure \ref{fig:eventsIntensity}) are displayed in Appendix Figure \ref{fig:placeboIntens}, and $DID_M$ models are presented in Appendix Figure \ref{fig:PlaceboDIDM} and Appendix Table \ref{tab:DDplacebo}, in all cases with no significant effects.  
+
+
+  Throughout this paper our main interest has been considering maternal \emph{morbidity} outcomes.  In Appendix results we document alternative measures of interest.  Table \ref{tab:DDbirth} and Figures \ref{fig:eventsBirths}-\ref{fig:eventsIntensityBirth} present estimates using birth rates, which broadly agree with findings from \citet{BentancorClarke2017} (albeit with considerably wider confidence intervals in event study models) pointing to larger impacts among younger women, with the largest impacts observed among the ages of 25--29 in Appendix Table \ref{tab:DDbirth}, (trends are provided in Figure \ref{fig:births}).  Of particular interest are results from Appendix Figure \ref{fig:eventsMM} and Table \ref{tab:DDMMR} which document the same estimates for maternal \emph{mortality}. In the case of mortality, as documented in Figure \ref{fig:eventsMM} we do not observe any significant impacts on average, in line with the idea that these events represent just a very small `tip of the iceberg' of maternal health outcomes.\footnote{The magnitudes in Chile are small.  In 2014, 34 maternal deaths occurred in the country and 252,194 live births occurred, giving a maternal mortality ratio of 13.5 deaths per 100,000 live births.  Of these 34 deaths, only 3 were classified as owing to abortion.}  This underlies the importance of focusing on maternal morbidity outcomes to capture the full weight of reform impacts.
+
+  \section{Discussion and Conclusion}
+  \label{scn:disc}
+  In this study we examine the impact of the EC pill on a number of women's health outcomes.  To do so, we consider the case of a municipal-rollout in EC pill availability in Chile's public health system.  This is an illustrative case, given that unlike a number of other studies of the rollout of the EC pill, in the entire period under study abortion was illegal. This work is the first to our knowledge which has full measures of both the intensity of usage of the EC pill in the publich health system as well as a measure of unfulfilled requests, in a setting where there is a sharp expansion in the availability of the EC pill.  We document that in this case, the availability of the EC pill can have appreciable impacts on women's health outcomes, and in particular observe that a higher intensity of EC pill disbursement is associated with reductions in rates of abortion related morbidity.  Our evidence suggests that this is the principal morbidity class impacted, with much less evidence to suggest impacts on rates of haemorrhage early in pregnancy. 
+  These results are at odds with a number of previous evaluations of the impact of the EC pill, which often find no, or small, impacts at the population level. We have conducted several robustness checks which indicate that these results are not an artifact/spurious, but that, in Chile during the period we study, the municipal rollout and usage of the EC pill indeed had beneficial effects on maternal morbidity. A potential explanation of these divergent results owes to context.  Unlike previous studies often based in the UK and US, this study examines a setting were abortion was entirely illegal.  Thus, a potential explanation of these results is that growing EC pill availability reduced the need to be exposed to the health risks inherent in clandestine abortion.\footnote{We unfortunately are not able to directly measure  rates of induced abortion, and certainly our outcomes include morbidity related to spontaneous abortion, therefore, this statement is only speculative.}
+  Our results are consistent with the EC pill and abortion functioning as substitutes in at least some cases, particularly in contexts where access to abortion is limited.  This finding echoes results in \citet{MillerValente2016},\footnote{\citet[p.\ 979]{MillerValente2016} state ``This finding has important implications for public policy and foreign aid, suggesting that an effective strategy for reducing expensive and potentially unsafe abortions may be to expand the supply of modern contraceptives''} providing evidence on a particular expansion in the supply of contraceptive methods.
+More importantly, our results indicate that the EC pill can improve women's health in this context where access to abortion is severely restricted. Even though access to some type of abortion is legal in most countries of the world, restrictions on access are not only common, but have been increasing in recent years, particularly in the U.S.\ \citep{Stotland2018}, suggesting a broadening relevance for the results in this study. 
+
+  While the Chilean case offers a number of important lessons and an ideal setting to study the EC pill in isolation of abortion, there are a number of limitations to this study.  Our measures of EC pill and contraceptive use covers only the population using the public health system, and does not capture private provision.  These results should thus interpreted with this in mind.  Secondly, while the rollout of the EC pill depends on decisions beyond the scope of each woman who requests EC pills, it is still based on a political calculus, namely depending on mayoral decisions.  Similarly, as discussed in the body of the paper, while this study covers a considerable variation in availability of the EC pill in each municipality, it is impossible to isolate all variation in availability of the EC pill in the country given the sporadic availability of the EC pill in the lead up to the reform, as well as the ability of women to simulate the EC pill with the ordinary oral contraceptive pill.
+
+  This research relates to an established and growing body of work documenting the importance of women's autonomy as a determinant of health (see eg \citet{Bloometal2001}).  In particular, we find some evidence that a higher rate of rejected pill requests is associated with higher rates of abortion related morbidity, possibly because women who see their request unfulfilled end up using far riskier options to terminate their pregnancies.  There is an ample range of variation in the rejection of pill request in the period we studied, with certain municipalities denying several hundreds of pill requests a month. Certainly, some requests are rejected for medical reasons, such as a late timing of the request. However, in the particular case of Chile, there is reason to think that rejections were not only medically based. During the years in which access to the EC pill was contingent on the mayor's will, anecdotal evidence suggested the existence of ``ideological rejections''. For instance, the mayor of the largest municipality of the country stated that the EC pill was against his moral principles and that he would not allow its disbursement.\footnote{Such press coverage (in Spanish) can be found, for example, \href{https://www.latercera.com/noticia/pildora-del-dia-despues-alcaldes-de-el-bosque-y-puente-alto-discrepan-por-dictamen-de-contraloria}{here}.} Our results suggest that these type of decisions not only go against the right of women to make autonomous decisions about their own body and reproductive function, but severely hinder women's health.
+  
+\end{spacing}
+\clearpage
+\bibliographystyle{ecta}
+\bibliography{refs}
+\clearpage
+
+
+\section*{Figures and Tables}
+%%DONE
+\begin{figure}[htpb!]
+  \caption{The Rollout of the Emergency Contraceptive Pill in Chile}
+  \label{fig:rollout}
+  \includegraphics[scale=1.3]{../results/descriptives/pillRollout.eps}
+  \vspace{-8mm}
+  \floatfoot{Notes: Administrative data on pill disbursements were transcribed from the full
+    Monthly Health Statistics (\emph{Res\'umen de Estad\'isticas Mensuales}) of the Ministry
+    of Health of the Government of Chile. These values were provided in a series of disaggregated
+    online ledgers by the MoH. We have transcribed these ledgers to form a consistent municipal
+    level register of all EC pills disbursed.  A research assistant first transcribed this data
+    by hand. A full audit of the transcription was then conducted, with discrepancies in
+    transcription found in 0.29\% of cases. These were corrected in the audit, resulting in the
+    final database.}
+\end{figure}
+
+\clearpage 
+%%DONE
+\begin{figure}[ht!]
+  \caption{Descriptive Trends of Main Morbidity Outcomes of Interest}
+  \label{fig:trendsMorb}
+  \begin{center}
+    \begin{subfigure}{0.49\textwidth}
+      \includegraphics[scale=0.52]{../results/descriptives/trendAll_abortion15_49.eps}
+      \caption{Abortion Morbidity}
+    \end{subfigure}
+    \begin{subfigure}{0.49\textwidth}
+      \includegraphics[scale=0.52]{../results/descriptives/trendAll_haemorrhage15_49.eps}
+      \caption{Haemorrhage}
+    \end{subfigure}
+    \floatfoot{Notes: All cases of morbidities are calculated from administrative health data on
+      all hospitalizations in the country. Abortion morbidity refers to all ICD-10 codes
+      capturing pregnancies with abortive outcomes (O02-O08) and Haemorrhage refers to
+      ``Haemorrhage early in pregnancy'' (ICD-10 code O20).}
+  \end{center}
+\end{figure}
+
+\clearpage 
+%%DONE
+\begin{table}[htpb!]
+  \centering
+  \caption{Summary Statistics}
+  \label{tab:sumstats}
+  \scalebox{0.84}{
+    \begin{tabular}{lccccc}\toprule
+      & Obs. & Mean & Std.\ Dev. & Min. & Max. \\ \midrule
+      \input{../results/descriptives/SumStats.tex}
+      \bottomrule
+      \multicolumn{6}{p{19.6cm}}{{\footnotesize Notes: Summary statistics are documented for
+          municipality by year cells, based on administrative data on inpatient stays released by the
+          Chilean Ministry of Health, and measures of the availability and usage of the morning after
+          pill collected by survey, and in a municipal health surveillance system. There are 346
+          municipalities in Chile, and so a maximum of 346 cells per year.  Information on
+          populations is provided by the National Institute of Statistics. As codified in Decree
+          1671 of the MoH, any hospitalisations must be recorded in a standard way, and records
+          exist for each visit starting at the administrative point of entry to the hospital, so
+          will capture visits even if they are for less than one day.}}
+  \end{tabular}}
+\end{table}
+
+
+%%DONE
+\begin{landscape}
+  \begin{figure}[htpb!]
+  \caption{Event Study Tests of the Impact of the EC Pill on Maternal Health Outcomes}
+  \label{fig:events}
+  \begin{center}
+    \begin{subfigure}{0.49\textwidth}
+      \includegraphics[scale=0.66]{../results/event/abort15_49.pdf}
+      \caption{Abortion-Related Morbidity}
+      \label{fig:abortEvent}
+      \end{subfigure}
+    \begin{subfigure}{0.49\textwidth}
+      \includegraphics[scale=0.66]{../results/event/haem15_49.pdf}
+      \caption{Haemorrhage Early in Pregnancy}
+      \label{fig:haemEvent}
+    \end{subfigure}%
+    \floatfoot{Notes: Event studies follow specification \ref{eqn:event}, where the outcome variable is the rate of abortion related morbidity per 1,000 fertile-aged women (panel (a)) and the rate of haemorrhage early in pregnancy ($<21$ weeks) (panel (b)).  Specifications are weighted using the number of fertile-aged women in each municipality, and standard errors are clustered by municipality.  Unweighted specifications are displayed as Appendix Figure \ref{fig:eventsUW}. The vertical solid line indicates 1 year prior to the first year in which a municipality disburses the EC pill.}
+  \end{center}
+\end{figure}
+\end{landscape}
+
+%%DONE
+\begin{figure}[htpb!]
+  \caption{$DID_M$ Estimates of the Impact of the EC Pill on Maternal Health Outcomes}
+  \label{fig:DIDM}
+  \begin{center}
+    \textbf{Abortion Related Morbidity}\\
+    \begin{subfigure}{0.49\textwidth}
+      \includegraphics[scale=0.55]{../results/DIDM/DIDM_abort_15_49.eps}
+      \caption{EC Pill Available and Abortion Morbidity}
+      \label{fig:abortDIDM}
+    \end{subfigure}
+    \begin{subfigure}{0.49\textwidth}
+      \includegraphics[scale=0.55]{../results/DIDM/DIDM_abort_noPillBinary_15_49.eps}
+      \caption{EC Pill Rejections and Abortion Morbidity}
+    \end{subfigure}
+
+    \vspace{5mm}\textbf{Haemorrhage Early in Pregnancy}\\
+    \begin{subfigure}{0.49\textwidth}
+      \includegraphics[scale=0.55]{../results/DIDM/DIDM_haem_15_49.eps}
+      \caption{EC Pill Available and Haemorrhage}
+      \label{fig:abortDIDM}
+    \end{subfigure}
+    \begin{subfigure}{0.49\textwidth}
+      \includegraphics[scale=0.55]{../results/DIDM/DIDM_haem_noPillBinary_15_49.eps}
+      \caption{EC Pill Rejections and Haemorrhage}
+    \end{subfigure}
+    \floatfoot{Notes: Each panel presents \citet{ChaisemartinDH2019} $DID_M$ estimates of
+      the impact of EC pill legislation on morbidity due to abortion (top row) or
+      haemorrhage early in pregnancy (bottom row).  In each case leads -3, -2, and -1 are
+      placebo tests, while lags 0, 1, and 2 are immediate or dynamic effects.  The thin black
+      line presents point estimates in each case, the thick grey error bar presents 90\% CIs,
+      and the thinner grey error bar presents 95\% CIs.  Panels (a) and (c) estimate
+      specification \ref{eqn:2wayFE} using a binary ``availability'' measure, while
+      Panels (b) and (d) estimate specification \ref{eqn:2wayFE}, replacing EC Pill
+      availability with a binary ``Pill Rejected'' indicator.  All specifications follow
+      \citet{ChaisemartinDH2019}, where flexible year fixed effects and municipal fixed
+      effects are included, along with all control variables described in Notes to Figure
+      \ref{fig:events}.  Inference is conducted using a block bootstrap by municipality.
+      Global effect sizes for each model (and standard errors in parentheses) are indicated
+      on plots.}
+  \end{center}
+\end{figure}
+
+
+
+%%DONE
+\begin{figure}[htpb!]
+  \caption{Event Study Tests of the Intensity of the EC Pill on Maternal Health Outcomes}
+  \label{fig:eventsIntensity}
+  \begin{center}
+
+   \begin{subfigure}{0.99\textwidth}
+      \includegraphics[scale=0.88]{../results/event_abort15_49Pop_intensity.eps}
+      \caption{Intensity of EC Pill and Abortion Related Morbidity}
+      \label{fig:AI}
+    \end{subfigure}
+
+    \begin{subfigure}{0.99\textwidth}
+        \includegraphics[scale=0.88]{../results/event_haem15_49Pop_intensity.eps}
+        \caption{Intensity of EC Pill and Haemorrhage Early in Pregnancy}
+        \label{fig:HI}
+    \end{subfigure}
+    
+    \floatfoot{Notes: Each set of point estimates and 95\% confidence intervals refer to the EC pill roll-out leads and lags for municipalities with low, medium, and high rates of pill disbursements.  These definitions are created based on the rate of pill disbursement per municipality, splitting the sample into three evenly sized groups.  Coefficients are slightly shifted around the yearly leads and lags to visualise each estimate separately. All additional details follow Figure \ref{fig:events}.}
+  \end{center}
+\end{figure}
+
+
+%%DONE
+\begin{table}
+  \centering
+  \caption{$DID_M$ Estimates and Placebos -- Binary and Continous Models}
+  \label{tab:DIDM}
+  \begin{tabular}{lcccc}\toprule
+    & \multicolumn{2}{c}{Pill Availability} & \multicolumn{2}{c}{Pill Rejection} \\ \cmidrule(r){2-3}\cmidrule(r){4-5}
+    & (1) & (2) & (3) & (4) \\ \midrule
+    \textbf{Panel A: Abortion Related Morbidity} &&&& \\
+    \input{../results/DIDM/DIDM_abort15_49_weighted.tex} \midrule
+    \textbf{Panel B: Haemorrhage Early in Pregnancy} &&&& \\
+    \input{../results/DIDM/DIDM_haem15_49_weighted.tex} \bottomrule
+    \multicolumn{5}{p{16.2cm}}{{\footnotesize Notes: Aggregate $DID_M$ estimates as well as placebo tests are presented for estimated impacts on abortion related morbidity (panel A) and haemorrhage early in pregnancy (panel B).  Columns 1 and 2 consider the impacts of EC pill availability on morbidity outcomes, while columns 3 and 4 consider the impacts of EC pill refusal on morbidity outcomes.  Binary classifications refer to models examining indicators for availability (column 1) or refusal (column 3), while continuous classifications refer to models examining estimated impacts of pills disbursed per 1,000 fertile aged women (column 2) or pills refused per 1,000 fertile aged women (column 4).  All other details follow those indicated in Notes to Figure \ref{fig:DIDM}.}}
+  \end{tabular}
+\end{table}
+
+
+%%DONE
+\begin{figure}[htpb!]
+    \caption{Coverage of Alternative Contraceptive Methods used in Chile}
+    \label{fig:contraceptives}
+    \includegraphics[scale=1.8]{../results/descriptives/all_contraceptives.eps}
+    \vspace{-8mm}
+    \floatfoot{Notes: Administrative data on all contraceptive disbursements provided by the public health system were transcribed (at the health service level) from the full Monthly Health Statistics (\emph{Res\'umen de Estad\'isticas Mensuales}) of the Ministry of Health of the Government of Chile.  Data are provided for the copper intrauterine device (IUD), the oral pill (both the combined oestrogen and progestogen pill as well as the progestogen-only pill), injectable contraceptives, and condoms (both those requested by women and those requested by men).  Trends displayed here are for the total population covered by each method in the entirety of the country.}
+\end{figure}
+
+
+%%DONE
+\begin{landscape}
+\begin{figure}[htpb!]
+  \caption{Placebo Tests using Full Morbidity Records and Puerperium Health Outcomes}
+  \label{fig:PlaceboM}
+  \begin{center}
+    \begin{subfigure}{0.45\textwidth}
+      \includegraphics[scale=0.6]{../results/event/maleMorbidity.pdf}
+      \caption{Male Morbidity}
+    \end{subfigure}%
+    \begin{subfigure}{0.45\textwidth}
+      \includegraphics[scale=0.6]{../results/event/puerperium.pdf}
+      \caption{Puerperium}
+    \end{subfigure}
+    \floatfoot{Notes: Event studies follow specification \ref{eqn:event}, where the outcome variables are all-cause male morbidity between the ages of 15--49 in panel (a), and morbidity owing to complications related to the puerperium period (based on ICD codes O85-O92) in panel (b).   Each outcome is per 1,000 residents of the same sex aged 15--49 (per 1,000 males in panel (a) and 1,000 females in panel (b)). Specifications are weighted using the number of fertile-aged men and women respectively in each municipality, and standard errors are clustered by municipality.}
+  \end{center}
+\end{figure}
+\end{landscape}
+
+
+\clearpage
+\appendix
+\renewcommand{\thetable}{A\arabic{table}}
+\setcounter{table}{0}
+\renewcommand{\thefigure}{A\arabic{figure}}
+\setcounter{figure}{0}
+\pagenumbering{arabic}
+\renewcommand{\thepage}{A\arabic{page}}
+%
+
+\begin{spacing}{2}
+\begin{center}
+{    \large Appendix for \vspace{4mm} \\
+}
+  {\LARGE
+    ``Access to The Emergency Contraceptive Pill and Women's Reproductive Health: Evidence from Public Reform in Chile''
+  } \vspace{4mm} \\
+  {
+    \large
+    \textbf{Damian Clarke and Viviana Salinas}
+    \vspace{4mm} \\
+    Online only, not for print.
+    }
+\end{center}
+\end{spacing}
+
+
+
+
+\section{Appendix Figures and Tables}
+%%DONE
+\begin{table}[htpb!]
+  \centering
+  \caption{Correlation Between Stated Availability of EC Pill and Actual Disbursements}
+    \label{tab:corrPills}
+    \begin{tabular}{lcccccc}\toprule
+      &\multicolumn{3}{c}{Unweighted Specifications} &\multicolumn{3}{c}{Weighted by Municipal Population} \\ \cmidrule(r){2-4}\cmidrule(r){5-7}
+      &(1)&(2)&(3)&(4)&(5)&(6) \\ \midrule
+      \input{../results/pillCorrelates.tex}
+      \midrule
+      {\bf Outcome Variable}: &&&&&&\\
+      Pills per capita      & Y & - & - & Y & - & - \\
+      Any pills disbursed   & - & Y & - & - & Y & - \\
+      Total pills disbursed & - & - & Y & - & - & Y \\
+      \bottomrule
+      \multicolumn{7}{p{16.1cm}}{{\footnotesize Notes: Each column displays a simple bivariate regression of a measure of EC pill usage from administrative data of EC pill disbursement on an indicator of whether the EC pill is available in the municipality according to municipal authorities.  This availability measure was collected in telephone surveys implemented by \citet{Didesetal2009,Didesetal2010,Didesetal2011}. The outcome variable in each case is indicated in the table footer.  Weighted and unweighted specifications are shown, where weights are defined based on the number of women aged between 15 and 49 years in each municipality. $^{*}$ p<0.10, $^{**}$ p<0.05, $^{***}$ p<0.01.}}
+    \end{tabular}
+\end{table}
+
+
+%%DONE
+\begin{figure}[htpb!]
+  \caption{Descriptive Figures by Quinquennial Age Groups (Abortion)}
+  \label{fig:abort5y}
+  \begin{center}
+    \begin{subfigure}{0.49\textwidth}
+      \includegraphics[scale=0.52]{../results/descriptives/trendAll_abortion15_19.eps}
+      \caption{15-19}
+    \end{subfigure}
+    \begin{subfigure}{0.49\textwidth}
+      \includegraphics[scale=0.52]{../results/descriptives/trendAll_abortion20_24.eps}
+      \caption{20-24}
+    \end{subfigure}
+
+    \begin{subfigure}{0.49\textwidth}
+      \includegraphics[scale=0.52]{../results/descriptives/trendAll_abortion25_29.eps}
+      \caption{25-29}
+    \end{subfigure}
+    \begin{subfigure}{0.49\textwidth}
+      \includegraphics[scale=0.52]{../results/descriptives/trendAll_abortion30_34.eps}
+      \caption{30-34}
+    \end{subfigure}
+
+        \begin{subfigure}{0.49\textwidth}
+      \includegraphics[scale=0.52]{../results/descriptives/trendAll_abortion35_39.eps}
+      \caption{35-39}
+    \end{subfigure}
+    \begin{subfigure}{0.49\textwidth}
+      \includegraphics[scale=0.52]{../results/descriptives/trendAll_abortion40_44.eps}
+      \caption{40-44}
+    \end{subfigure}
+    \floatfoot{Notes: Each panel displays the total number of hospital visits in administrative health data  recording pregnancies with abortive outcomes (ICD-10 codes O02-O08). Quantities are calculated for each quinquennial age group.}
+  \end{center}
+  \end{figure}
+
+
+%%DONE
+\begin{figure}[htpb!]
+  \caption{Descriptive Figures by Quinquennial Age Groups (Haemorrhage)}
+  \label{fig:haem5y}
+  \begin{center}
+    \begin{subfigure}{0.49\textwidth}
+      \includegraphics[scale=0.52]{../results/descriptives/trendAll_haemorrhage15_19.eps}
+      \caption{15-19}
+    \end{subfigure}
+    \begin{subfigure}{0.49\textwidth}
+      \includegraphics[scale=0.52]{../results/descriptives/trendAll_haemorrhage20_24.eps}
+      \caption{20-24}
+    \end{subfigure}
+
+    \begin{subfigure}{0.49\textwidth}
+      \includegraphics[scale=0.52]{../results/descriptives/trendAll_haemorrhage25_29.eps}
+      \caption{25-29}
+    \end{subfigure}
+    \begin{subfigure}{0.49\textwidth}
+      \includegraphics[scale=0.52]{../results/descriptives/trendAll_haemorrhage30_34.eps}
+      \caption{30-34}
+    \end{subfigure}
+
+        \begin{subfigure}{0.49\textwidth}
+      \includegraphics[scale=0.52]{../results/descriptives/trendAll_haemorrhage35_39.eps}
+      \caption{35-39}
+    \end{subfigure}
+    \begin{subfigure}{0.49\textwidth}
+      \includegraphics[scale=0.52]{../results/descriptives/trendAll_haemorrhage40_44.eps}
+      \caption{40-44}
+    \end{subfigure}
+    \floatfoot{Notes: Each panel displays the total number of hospital visits in administrative health data recorded as ``Haemorrhage early in pregnancy'' (ICD-10 code O20).  Quantities are calculated for each quinquennial age group.}
+  \end{center}
+  \end{figure}
+
+
+
+%%DONE
+\begin{table}[htpb!]
+  \centering
+  \caption{Number of EC Pills Disbursed per Year and Total Population of Fertile-Aged Women}
+  \label{tab:Npills}
+  \begin{tabular}{lccc}
+    \toprule
+    Year & EC Pills & Population & EC Pills/1,000 Women \\ \midrule
+    2009 & $7,552$  & $4,547,573$ & $1.66$ \\
+    2010 & $3,219$  & $4,574,965$ & $0.70$ \\
+    2011 & $6,047$  & $4,598,663$ & $1.31$ \\
+    2012 & $12,603$ & $4,619,565$ & $2.72$ \\
+    2013 & $15,847$ & $4,636,571$ & $3.42$ \\
+    2014 & $22,544$ & $4,649,712$ & $4.85$ \\
+    2015 & $25,497$ & $4,659,663$ & $5.47$ \\
+    2016 & $19,653$ & $4,667,215$ & $4.21$ \\ \midrule
+    Average & $14,120.3$ & $4,619,241$ & $3.05$ \\ \bottomrule
+    \multicolumn{4}{p{9.8cm}}{\footnotesize Notes: Number of EC pills disbursed
+      is calculated from administrative data provided by the Ministry of Health.
+      Total population per year is provided by the Chilean National Institute of
+      Statistics (INE).}
+  \end{tabular}
+\end{table}
+
+%%DONE
+\begin{table}[htpb!]
+  \centering
+  \caption{EC Pills Disbursed per Treatment Lag and Total Population of Fertile-Aged Women}
+  \label{tab:NpillsLag}
+  \begin{tabular}{lccc}
+    \toprule
+    Lag  & EC Pills & Population & EC Pills/1,000 Women \\ \midrule
+    0 & $7,054$   & $4,582,073$ & $1.54$ \\
+    1 & $9,159$   & $4,604,620$ & $1.99$ \\
+    2 & $15,024$  & $4,623,828$ & $3.25$ \\
+    3 & $19,754$  & $4,639,446$ & $4.26$ \\
+    4 & $22,120$  & $4,651,479$ & $4.76$ \\
+    5 & $21,517$  & $4,167,534$ & $5.16$ \\
+    6 & $13,323$  & $2,700,957$ & $4.93$ \\
+    7 & $5,015$   & $827,689$   & $6.05$ \\ \midrule
+    Average & $14,120.3$ & $3,849,703$ & $3.67$ \\ \bottomrule
+    \multicolumn{4}{p{9.8cm}}{\footnotesize Notes: Number of EC pills disbursed
+      is calculated from administrative data provided by the Ministry of Health.  Lags refer to time periods from the moment that the EC pill was first adopted by a municipality.
+      Total population per is provided by the Chilean National Institute of
+      Statistics (INE).}
+  \end{tabular}
+\end{table}
+
+
+%%DONE
+\begin{landscape}
+\begin{figure}
+  \caption{Event Study Tests of the Impact of the EC Pill on Maternal Health Outcomes (Unweighted)}
+  \label{fig:eventsUW}
+  \begin{center}
+    \begin{subfigure}{0.49\textwidth}
+      \includegraphics[scale=0.67]{../results/event/abort15_49_unweight.pdf}
+      \caption{Abortion-Related Morbidity}
+      \label{fig:abortEventUW}
+    \end{subfigure}
+    \begin{subfigure}{0.49\textwidth}
+      \includegraphics[scale=0.67]{../results/event/haem15_49_unweight.pdf}
+      \caption{Haemorrhage Early in Pregnancy}
+      \label{fig:haemEventUW}
+    \end{subfigure}%
+    \floatfoot{Notes: Event studies are identical to those in Figure \ref{fig:events}, however now do not weight by municipal population.  Given the large number of small municipalities where small absolute changes in rates of morbidity can have large relative impacts, specifications presented in Figure \ref{fig:events} are our preferred specification, as these give equal weights to each \emph{woman} rather than each \emph{municipality} in the country.  Refer to notes to Figure \ref{fig:events} for additional discussion.}
+  \end{center}
+\end{figure}
+\end{landscape}
+
+%%DONE
+\begin{landscape}
+  \begin{table}[htpb!]
+    \centering
+    \caption{$DID_M$ Estimates of Pill Disbursements on Haemorrhage and Abortion Related Morbidity}
+    \label{tab:DD}
+    \begin{tabular}{lcccccccc}\toprule
+      &All Women&\multicolumn{7}{c}{Age-Specific Groups} \\ \cmidrule(r){3-9}
+      &&15-19&20-24&25-29&30-34&35-39&40-44&45-49 \\
+      &(1)&(2)&(3)&(4)&(5)&(6)&(7)&(8) \\ \midrule
+      \multicolumn{9}{l}{\textbf{Panel A: Abortion Related Morbidity}} \\
+      \input{../results/DIDM/DIDM_abort.tex}
+      \multicolumn{9}{l}{\textbf{Panel B: Haemorrhage Early in Pregnancy}} \\
+      \input{../results/DIDM/DIDM_haem.tex} 
+      \bottomrule
+      \multicolumn{9}{p{19.2cm}}{{\footnotesize Notes: Each column displays a $DID_M$ estimate of the impact of abortion reform on rates of morbidity (inpatient cases) for morbidity related to abortion (ICD codes O02-O08) and for haemorrhage early in pregnancy (prior to 21 weeks).  Each morbidity class is measured as cases per 1,000 fertile-aged women each year, and average levels in the full set of data are available at the foot of the table.  All standard errors are clustered at the level of the municipality.  Column (1) of this table replicates column (1) of Table \ref{tab:DIDM} (for all ages), with remaining columns focusing on quinquennial age groups.}}
+    \end{tabular}
+  \end{table}
+\end{landscape}
+
+
+%%DONE
+\begin{landscape}
+  \begin{table}[htpb!]
+    \centering
+    \caption{$DID_M$ Estimates with Unweighted Cells}
+    \label{tab:DDUW}
+    \begin{tabular}{lcccccccc}\toprule
+      &All Women&\multicolumn{7}{c}{Age-Specific Groups} \\ \cmidrule(r){3-9}
+      &&15-19&20-24&25-29&30-34&35-39&40-44&45-49 \\
+      &(1)&(2)&(3)&(4)&(5)&(6)&(7)&(8) \\ \midrule
+      \multicolumn{9}{l}{\textbf{Panel A}: Abortion-Related Morbidity} \\
+      \input{../results/DIDM/DIDM_abort_unweighted.tex} \\
+      \multicolumn{9}{l}{\textbf{Panel B}: Haemorrhage Early in Pregnancy} \\
+      \input{../results/DIDM/DIDM_haem_unweighted.tex} 
+      \bottomrule
+      \multicolumn{9}{p{19.8cm}}{{\footnotesize Notes: $DID_M$ results are identical to those in Table \ref{tab:DD}, however now do not weight by municipality population.  Given the large number of small municipalities where small absolute changes in rates of morbidity can have large relative impacts, we strictly prefer weighted specifications presented in Table \ref{tab:DD}, as these give equal weights to each \emph{woman} rather than each \emph{municipality} in the country.  Refer to notes to Table \ref{tab:DD} for additional discussion.}}
+    \end{tabular}
+  \end{table}
+\end{landscape}
+
+\clearpage
+\thispagestyle{empty}
+\begin{figure}[htpb!]
+  \begin{center}
+    \caption{Health Services and Municipalities}
+    \label{fig:healthServices}
+    \includegraphics[scale=0.76]{../results/Servicio_Salud.eps}
+  \end{center}
+  \vspace{-6mm}
+  \floatfoot{\textsc{Notes to Figure \ref{fig:healthServices}}: Municipalities
+    are indicated by municipal boundaries, and health services are indicated
+    by colours.  Each of Chile's 346 municipalities belongs to one of 29 Health
+    Services.  The entire country is displayed at right, and the densely populated
+    Metropolitan Region of Santiago is displayed at left.
+  }
+\end{figure}
+\clearpage
+
+
+\begin{figure}[htpb!]
+  \caption{Baseline Event Studies -- Abortion Morbidity and the Emergency Contraceptive Pill}
+  \label{fig:abortEventCC}
+  \includegraphics[scale=0.8]{../results/event/abort15_49contcontrols.pdf}
+  \vspace{-4mm}
+  \floatfoot{Notes: Event studies follow specification \ref{eqn:event}, however without time-varying controls, where the outcome variable is cases of abortion related morbidity per 1,000 fertile-aged women.  Specifications are weighted using the number of fertile-aged women in each municipality, and standard errors are clustered by municipality.}
+\end{figure}
+
+\begin{figure}[htpb!]
+  \caption{Baseline Event Studies -- Haemorrhage Early in Pregnancy and the Emergency Contraceptive Pill}
+  \label{fig:haemEventCC}
+  \includegraphics[scale=0.8]{../results/event/haem15_49contcontrols.pdf}
+  \vspace{-4mm}
+  \floatfoot{Notes: Refer to notes to Figure \ref{fig:abortEventCC}.  An identical specification is estimated, however now with rates of haemorrhage early in pregnancy ($<$21 weeks) per 1,000 fertile-aged women as the dependent variable.}
+\end{figure}
+
+\begin{figure}[htpb!]
+  \caption{Baseline Event Studies -- Intensity of EC Pill and Abortion}
+  \label{fig:AICC}
+  \includegraphics[scale=0.84]{../results/event_abort15_49Pop_intensitycontcontrols.eps}
+  \floatfoot{Notes: Each set of point estimates and 95\% confidence intervals refer to the EC pill roll-out leads and lags for municipalities with low, medium, and high rates of pill disbursements, without the inclusion of time-varying controls.  These definitions are created based on the rate of pill disbursement per municipality, with splits into three evenly sized groups.  Coefficients are slightly shifted around the yearly lags and leads to visualise each estimate separately.}
+\end{figure}
+
+\begin{figure}[htpb!]
+  \caption{Baseline Event Studies -- Intensity of EC Pill and Haemorrhage}
+  \label{fig:HICC}
+  \includegraphics[scale=0.84]{../results/event_haem15_49Pop_intensitycontcontrols.eps}
+  \floatfoot{Notes: Refer to notes to Figure \ref{fig:AICC}. An identical specification is estimated, however now with rates of haemorrhage early in pregnancy ($<$21 weeks) per 1,000 fertile-aged women as the dependent variable.}
+\end{figure}
+
+
+\begin{figure}[htpb!]
+  \caption{Event Studies with Political Controls: Abortion Morbidity and the Emergency Contraceptive Pill}
+  \label{fig:abortEventPC}
+  \includegraphics[scale=0.8]{../results/event/abort15_49polcontrols.pdf}
+  \vspace{-4mm}
+  \floatfoot{Notes: Event studies follow specification \ref{eqn:event}, where the outcome variable is cases of abortion related morbidity per 1,000 fertile-aged women.  Specifications are weighted using the number of fertile-aged women in each municipality, and standard errors are clustered by municipality.}
+\end{figure}
+
+
+
+\begin{figure}[htpb!]
+  \caption{Event Studies with Political Controls: Haemorrhage Early in Pregnancy and the Emergency Contraceptive Pill}
+  \label{fig:haemEventPC}
+  \includegraphics[scale=0.8]{../results/event/haem15_49polcontrols.pdf}
+  \vspace{-4mm}
+  \floatfoot{Notes: Refer to notes to Figure \ref{fig:abortEventPC}.  An identical specification is estimated, however now with rates of haemorrhage early in pregnancy ($<$21 weeks) per 1,000 women as the dependent variable.}
+\end{figure}
+
+\begin{figure}[htpb!]
+  \caption{Event Studies with Political Controls: Intensity of EC Pill and Abortion}
+  \label{fig:AIPC}
+  \includegraphics[scale=0.84]{../results/event_abort15_49Pop_intensitypolcontrols.eps}
+  \floatfoot{Notes: Each set of point estimates and 95\% confidence intervals refer to the EC pill roll-out leads and lags for municipalities with low, medium, and high rates of pill disbursements.  These definitions are created based on the rate of pill disbursement per municipality, with splits into three evenly sized groups.  Coefficients are slightly shifted around the yearly lags and leads to visualise each estimate separately.}
+\end{figure}
+
+\begin{figure}[htpb!]
+  \caption{Event Studies with Political Controls: Intensity of EC Pill and Haemorrhage}
+  \label{fig:HIPC}
+  \includegraphics[scale=0.84]{../results/event_haem15_49Pop_intensitypolcontrols.eps}
+  \floatfoot{Notes: Refer to notes to Figure \ref{fig:AIPC}.  Identical models are estimated, however with the depedent variable as haemorrhage early in pregnancy.}
+\end{figure}
+
+%%DONE
+\begin{figure}[htpb!]
+  \caption{Placebo Tests using Male Morbidity and Puerperium Health Outcomes by Pill Intensity}
+  \label{fig:placeboIntens}
+  \begin{center}
+    \begin{subfigure}{0.99\textwidth}
+      \includegraphics[scale=0.8]{../results/event_maleMorbidityPop_intensity.eps}
+      \caption{Male Morbidity}
+    \end{subfigure}
+
+    \begin{subfigure}{0.99\textwidth}
+      \includegraphics[scale=0.8]{../results/event_puerperiumPop_intensity.eps}
+      \caption{Puerperium}
+    \end{subfigure}
+    \floatfoot{Notes: Each set of point estimates and 95\% confidence intervals refer to the EC pill roll-out leads and lags for municipalities with low, medium, and high rates of pill disbursements.  These definitions are created based on the rate of pill disbursement per municipality, with splits the sample into three evenly sized groups.  Coefficients are slightly shifted around the yearly lags and leads to visualise each estimate separately. All additional details follow Figure \ref{fig:PlaceboM}.}
+  \end{center}
+\end{figure}
+
+
+%%DONE
+\begin{landscape}
+\begin{figure}[htpb!]
+  \caption{Placebo Tests using Full Morbidity Records and Puerperium Health Outcomes ($DID_M$)}
+  \label{fig:PlaceboDIDM}
+  \begin{center}
+    \begin{subfigure}{0.5\textwidth}
+      \includegraphics[scale=0.75]{../results/DIDM/DIDM_maleMorbidity_15_49.eps}
+      \caption{Male Morbidity}
+    \end{subfigure}%
+    \begin{subfigure}{0.5\textwidth}
+      \includegraphics[scale=0.75]{../results/DIDM/DIDM_puerperium_15_49.eps}
+      \caption{Puerperium}
+    \end{subfigure}
+    \floatfoot{Notes: Identical placebo outcomes are considered as those documented in Figure \ref{fig:PlaceboM} of the paper, however rather than event study models, $DID_M$ estimates are presented.  $DID_M$ models follow those described in Figure \ref{fig:DIDM} based on availability of the EC pill.}
+  \end{center}
+\end{figure}
+\end{landscape}
+
+
+
+
+\begin{landscape}
+  \begin{table}[htpb!]
+    \centering
+    \caption{$DID_M$ Estimates of Pill Disbursements on Placebo Outcomes}
+    \label{tab:DDplacebo}
+    \begin{tabular}{lcccccccc}\toprule
+      &All Women&\multicolumn{7}{c}{Age-Specific Groups} \\ \cmidrule(r){3-9}
+      &&15-19&20-24&25-29&30-34&35-39&40-44&45-49 \\
+      &(1)&(2)&(3)&(4)&(5)&(6)&(7)&(8) \\ \midrule
+      \multicolumn{9}{l}{\textbf{Panel A}: Morbidity During the Puerperium} \\
+      \input{../results/DIDM/DIDM_puerperium.tex} \\
+      \multicolumn{9}{l}{\textbf{Panel B}: Male Morbidity} \\
+      \input{../results/DIDM/DIDM_maleMorbidity.tex}
+      \bottomrule
+      \multicolumn{9}{p{19.8cm}}{{\footnotesize Notes: Each column displays a $DID_M$ estimate of the impact of abortion reform on rates of placebo outcomes displayed in Figure \ref{fig:PlaceboM}. Effects are documented for the entire population of fertile-aged women (column 1), and by quinquennial age groups (columns 2--8). All other details follow those in Table \ref{tab:DD}.}}
+    \end{tabular}
+  \end{table}
+\end{landscape}
+
+
+
+
+\begin{landscape}
+  \begin{table}
+    \centering
+    \caption{$DID_M$ Estimates of Pill Disbursements on Births}
+    \label{tab:DDbirth}
+    \begin{tabular}{lcccccccc}\toprule
+      &All Women&\multicolumn{7}{c}{Age-Specific Groups} \\ \cmidrule(r){3-9}
+      &&15-19&20-24&25-29&30-34&35-39&40-44&45-49 \\
+      &(1)&(2)&(3)&(4)&(5)&(6)&(7)&(8) \\ \midrule
+      \input{../results/DIDM/DIDM_birth.tex}
+      \bottomrule
+      \multicolumn{9}{p{19.1cm}}{{\footnotesize Notes: Each column displays a $DID_M$ estimate of the impact of abortion reform on rates of birth in each municipality.  Birth rates are measured as the number of births occurring per 1,000 fertile-aged women each year, and average levels in the full set of data are available at the foot of the table.  All standard errors are clustered at the level of the municipality, calculated based on a block bootstrap clustering by municipality.  All details follow those discussed in Table \ref{tab:DD}. $^{*}$ p<0.10, $^{**}$ p<0.05, $^{***}$ p<0.01.}}
+    \end{tabular}
+  \end{table}
+\end{landscape}
+
+\begin{figure}
+  \caption{Event Study Tests of the Impact of the EC Pill on Birth Rates}
+  \label{fig:eventsBirths}
+  \begin{center}
+    \includegraphics[scale=0.76]{../results/event/birth15_49polcontrols.pdf}
+    \floatfoot{Notes: Event studies follow specification \ref{eqn:event}, where the outcome variable is the number of births occurring per 1,000 fertile-aged women (15-49 year-olds).  Specifications are weighted using the number of fertile-aged women in each municipality, and standard errors are clustered by municipality. The vertical solid line indicates 1 year prior to the first year in which a municipality disburses the EC pill.}
+  \end{center}
+\end{figure}
+
+
+\begin{figure}[htpb!]
+  \caption{Event Study Tests of the Intensity of the EC Pill on Birth Rates}
+  \label{fig:eventsIntensityBirth}
+  \begin{center}
+    \includegraphics[scale=0.8]{../results/event_birth15_49Pop_intensity.eps}
+    \floatfoot{Notes: Refer to notes to Figure \ref{fig:eventsIntensity}.  Identical results are documented, where the outcome is now  the total number of births per 1,000 fertile-aged women.}
+  \end{center}
+\end{figure}
+
+\clearpage
+\begin{figure}[ht!]
+  \caption{Birth Rates in Chile, 2002-2016}
+  \label{fig:births}
+  \includegraphics[scale=1.05]{../results/fert2002_2016.eps}
+  \floatfoot{Notes: Fertility rates are calculated from full microdata on births released by the Chilean Ministry of Health, and population records calculated by the National Institute of Statistics.}
+\end{figure}
+
+
+\begin{figure}
+  \caption{Event Study Tests of the Impact of the EC Pill on Maternal Mortality}
+  \label{fig:eventsMM}
+  \begin{center}
+    \includegraphics[scale=0.76]{../results/event/MM15_49_unweight.pdf}
+    \floatfoot{Notes: Event studies follow specification \ref{eqn:event}, where the outcome variable is the number of maternal deaths per 1,000 fertile-aged women.  The vertical solid line indicates 1 year prior to the first year in which a municipality disburses the EC pill.}
+  \end{center}
+\end{figure}
+
+
+\begin{landscape}
+  \begin{table}
+    \centering
+    \caption{$DID_M$ Estimates of Pill Disbursements on the Maternal Mortality Ratio}
+    \label{tab:DDMMR}
+    \begin{tabular}{lcccccccc}\toprule
+      &All Women&\multicolumn{7}{c}{Age-Specific Groups} \\ \cmidrule(r){3-9}
+      &&15-19&20-24&25-29&30-34&35-39&40-44&45-49 \\
+      &(1)&(2)&(3)&(4)&(5)&(6)&(7)&(8) \\ \midrule
+      \multicolumn{9}{l}{\textbf{Panel A}: Maternal Mortality Rate} \\
+      \input{../results/DIDM/DIDM_MM_unweighted.tex} \\
+      \multicolumn{9}{l}{\textbf{Panel B}: Maternal Mortality Ratio} \\
+      \input{../results/DIDM/DIDM_MMR_unweighted.tex} \\
+      \bottomrule
+      \multicolumn{9}{p{19.8cm}}{{\footnotesize Notes: Each column displays a $DID_M$ estimate of the impact of abortion reform on maternal mortality outcomes.  The maternal mortality rate is the number of deaths per 1,000 women.  The maternal mortality ratio is defined as the number of maternal deaths per 100,000 live births.  Given few births in the 45--49 age cell and hence a large proportion of missings, this group is not included to ensure consistency of the $DID_M$ procedure in all displayed groups. All other details follow those in Table \ref{tab:DD}.}}
+    \end{tabular}
+  \end{table}
+\end{landscape}
+
+
+
+
+
+\clearpage
+\renewcommand{\thetable}{B\arabic{table}}
+\setcounter{table}{0}
+\renewcommand{\thefigure}{B\arabic{figure}}
+\setcounter{figure}{0}
+
+\section{Additional Background on The EC Pill and its Rollout in Chile}
+\label{Ascn:background}
+The EC pill is a hormonal treatment that women can use within up to five days of unprotected sex to reduce the probability of conception, although it is most most effective when taken within 12 hours \citep{vonHertzenetal2002}. It is composed of the progestin levonorgestrel, or a combination of oestrogen and progestin. Typically EC is taken either as a single pill or two pills in a 12 hours period \citep{vonHertzenetal2002}, even though the high dose of hormones these pills contain can be obtained by combining large amounts of normal birth control pills \citep{Ellersonetal1998}.\footnote{This method is known as the Yuzpe regime.  There is clear evidence showing that the Yuzpe regime is less effective than the levonorgestrel treatment available in the EC pill \citep{TFPMFR1998}.  Randomised Control Trial estimates suggest levonorgestrel drugs have 87\% effectiveness, while the Yuzpe method has only 57\% effectiveness in preventing pregnancy.  Nevertheless, the Yuzpe method can always be followed provided the oral contraceptive pill is available, even in the absence of legal availability of the EC pill.  In general, data based on google searches provided in Appendix Figure \ref{fig:gsearch} suggests no substantial change in rates of search for this method in the country around the time of the roll-out of the EC pill.}
+  The effectiveness of the EC pill, based on typical usage, is estimated to be 75-90 percent, depending on the method used.  Even though EC has been of clinical interest since the late 1960s, the EC pill is still not available worldwide.\footnote{The \citet{ICEC2019} currently lists 47 countries with no EC pill availability, spanning Africa, Asia, South America and Europe.} The first countries that made the EC pill available did so in the mid-1980s and many countries made it available only in this millennium \citep{BentancorClarke2017}.
+
+  Previous evaluations of the EC pill have been conducted mainly in the U.S. and in the United Kingdom \citep{Grossetal2014,Durrance2013,GirmaPatton2006,GirmaPatton2011,Mulligan2015}. These studies focus nearly exclusively on fertility outcomes, the prevalence of sexually transmitted infections, unprotected sex and changes in contraceptive use, either in the total population or only in adolescents. They generally conclude that EC is not associated with more unprotected intercourse or less condom or hormonal contraceptive use \citep{Goldetal2004}. There have also been studies of the impact of the EC pill on pregnancy and abortion rates, most of which find no effects at a population level \citep{Durrance2013,Grossetal2014,Raymondetal2007}. All of these studies are in countries in which abortion is legal.  On the contrary, a study conducted in Chile in a period in which all forms of abortion were still illegal concluded that the EC pill reduced the general fertility rate by (a somewhat noisy) 1.6 percent and that it reduced fetal death (which may in part reflect illegal abortions) by 40 percent among adolescents \citep{BentancorClarke2017}. A recent study by \citet{NuevoChiqueroPino2019} additionally finds an impact of the rollout of the EC pill in Chile on other methods of contraceptive use.  These results are consistent with EC potentially having a significant effect in contexts in which access to abortion is restricted.
+
+  In Chile
+  the introduction of the EC pill was complex, with an extended period in which the EC pill was available in only certain municipalities. 
+  As with a number of historical legislative initiatives in the country related to either reproductive health or marriage, more conservative sectors blocked the action of more progressive sectors resulting in piecemeal reforms. In the particular case of the EC pill, the first discussions and administrative inquires took place in 2001, but only in 2005 the Supreme Court determined that it was constitutionally valid for the EC drug to be included in the national pharmaceutical register. Detractors quickly challenged this decision, presenting cases both before ordinary and Constitutional Tribunal \citep{CasasBecerra2008,Dides2009}.  Between 2005 and 2008, a number of legislative findings meant that the EC pill was sporadically available, either for purchase in private pharmacies or disbursement in state run clinics, however these periods were typically short-lived, with restrictions on availability, or with inconsistent stocks available. For example, until February 2007, the EC pill was only available from the public health service in the case of rape \citep{NuevoChiqueroPino2019}.  A more complete description of this period from 2005 to 2008, including a brief period of legality, is available in \citet{NuevoChiqueroPino2019} and in \citet[Appendix B]{BentancorClarke2017}.
+
+\begin{figure}[htpb!]
+  \caption{Frequency of Search on Google for Certain Terms, Chile 2004-2019}
+  \label{fig:gsearch}
+  \begin{center}
+    \includegraphics[scale=1.6]{../results/searches.eps}
+  \end{center}
+  \vspace{-1cm}
+  \floatfoot{Notes: Each line documents the intensity of search based on google trends data for 3 terms.  These are (a) ``Anticonceptive de emergencia'' (blue solid line) which is ``emergency contraceptive'' in English, (b) ``M\'etodo de Yuzpe'' (dashed pink line) which is Yuzpe Method in English, and (c) ``PAE'' (thin green line) which refers to ``Pildora Anticonceptivo de Emergencia'' the common term for the Emergency Contraceptive Pill in Chile. Note that the first two terms are grouped by google as a ``topic'' capturing any related terms, while PAE is simply a ``term'' which will capture any search including this term.  Data is publicly available from google trends, and was consulted August 2, 2019.  This graph can be replicated including future dates at the following address:
+    \url{https://trends.google.com/trends/explore?date=all&geo=CL&q=}\texttt{\%2Fm\%2F04sc1,\%2Fm\%2F046lns,PAE} }
+\end{figure}
+  
+  
+  A key event occurred in 2008, where the country's Constitutional Tribunal made it expressly illegal for the centralized public health system to distribute the EC pill, however did not expressly limit municipal health centres, run by local councils in nearly each of the country's 346 municipalities, from providing the EC pill.  This began a period in which each municipality, under the guidance of the municipal mayor, controlled whether the EC pill was freely available upon request from local primary care clinics \citep{Didesetal2009,Didesetal2010,Didesetal2011}. In practice, about half of the Chilean municipalities distributed the EC pill freely and the other half refused to distribute it or distribute it under very restrictive conditions.  As we document in the body of this paper, in general usage of the EC pill has increased over time, however there was a reduction in 2010 owing to an additional finding of the government auditor (\emph{Contralor\'ia})  suggesting that the EC pill could not be prescribed in municipal health centres. Nevertheless, there was confusion surrounding this finding, and certain municipalities continued to prescribe the EC pill \citep{Didesetal2011}. This situation of municipal variation in availability lasted for around three years, ending due to the passage of two laws.  The first of these laws (Law 20.418) was approved in January of 2010, and makes explicit that the State is obliged to provide the EC pill.  However, this law was only eventually made operational in May of 2013 \citep{NuevoChiqueroPino2019}.  The second of these laws which was made operational in September of 2011 (Law 20.533) ensures that midwifes can provide the EC pill, theoretically putting an end to the municipal variation in the EC pill in Chile from this time onwards.
+\footnote{In the period under study, abortion was completely illegal in Chile. In 2017 a law was passed allowing abortion in cases of severe risk to the mother's life, when the fetus is inviable, that is to say, it will not survive the pregnancy, or in cases of rape, but only during the first 12 weeks of pregnancy. EC was then, and to a certain extent still is, the only legal way to avoid an unwanted pregnancy after unprotected intercourse.}  As we discuss in section \ref{scn:background} of this paper, the 2011 reform was key given that midwives are the public health professionals which provide consultations and access to the EC pill in all public health clinics with the country.  Indeed, this 2011 date is the access date highlighted in the Chilean Ministry of Health's (MoH) official National Norms of Fertility \citep[\S A.2]{MinSal2018}.
+
+There are a number of studies examining the use of the EC pill in Chile, though with the exception of the two aforementioned papers, these are descriptive, and written in Spanish. These studies indicate that the main users of this contraceptive method are young women, most of whom are single, have no children, are students and have only had one or two sexual partners \citep{Escobaretal2008}. Two studies report that about a third of the EC pills disbursed in state-clinic are given to adolescents \citep{Schiappacasseetal2014,MoranFaundes2013}. In the same vein, the number of visits to state-clinics requesting EC pills increased 11.5 times between 2009 and 2010 among women younger than 20 years old, but it only increased 0.3 times among older women \citep{Lavanderosetal2016}. There is also some evidence that the request of EC pills is higher in rural areas \citep{MoranFaundes2013}. Recent work by \citet{NuevoChiqueroPino2019} finds that the availability of the EC pill has no significant impact on the age of sexual debut or more unprotected intercourse, which is consistent with the U.S. based literature, but it is significantly related to an increase in the use of modern contraceptive methods and to a decrease in the use of traditional contraceptive methods. The authors find that this is driven by an `information channel' with health care providers advising on the use of alternative methods in the future when women visit to request the pill.  All of these effects are stronger among adolescents \citep{NuevoChiqueroPino2019}.
+
+  
+
+\section{Additional Information Related to $DID_M$ Estimators}
+\label{AScn:DIDM}
+Consider health outcomes $Health_{ct}$ where $c$ indexes municipalities and $t$ indexes time.  In what follows, we will use the notation of $P_{c,t}=1$ to signify that municipality $c$ provides the EC pill in time period $t$, otherwise $P_{c,t}=0$ indicates that the EC pill is not provided.   
+
+Following \citet{ChaisemartinDH2019}, we define a time-specific estimand $DID_{+,t}$ as:
+\[
+DID_{+,t}=\sum_{c:P_{c,t}=1,P_{c,t-1}=0}\frac{N_{c,t}}{N_{1,0,t}}\left(Health_{c,t}-Health_{c,t-1}\right)-\sum_{c:P_{c,t}=P_{c,t-1}=0}\frac{N_{c,t}}{N_{0,0,t}}\left(Health_{c,t}-Health_{c,t-1}\right).
+\]
+Here $N_{c,t}$ refers to the number of observations for a particular municipality and time-period, $N_{1,0,t}$ refers to the number of observations which move from untreated to treated at time period $t$, and $N_{0,0,t}$ refer to the number of observations that remain untreated at both time $t-1$ and $t$.  Note that in our setting of a staggered adoption design, municipalities do not switch out of treatment once they begin to disburse the EC pill.  In words, this $DID_{+,t}$ estimand compares changes in health outcomes between period $t$ and $t-1$ in areas which adopt the EC Pill and those which remain without the EC pill in both periods.  If rates of morbidity decrease more between period $t-1$ and $t$ in areas which adopt the EC pill than they decrease in areas which do not adopt the EC pill in this time period, this quantity will be negative.   
+
+The above estimand is presented for a single time period $t$.  In order to arrive at a single global estimate, define:
+\[
+DID_M = \sum_{t=2}^T\left(\frac{N_{1,0,t}}{N}DID_{+,t}\right).
+\]
+The $DID_M$ estimate is presented in the paper, which is a weighted average of the $DID_{+,t}$ estimands defined above.  Note that this estimand captures the immediate impact of EC pill provision in the first period of adoption.  We can additionally estimate dynamic effects, following the implementation of \citet{dCDHG2019}, where instead of considering changes between period $t-1$ and $t$, we consider changes between period $t-1$ and $t+1$ (lead 1) and $t-1$ and $t+2$ (lead 2).\footnote{In particular, this implies that $P_{c,t-1}=0$, and $P_{c,t}=P_{c,t+1}=1$ in the case of lead 1, or $P_{c,t-1}=0$, and $P_{c,t}=P_{c,t+1}=P_{c,t+2}=1$ in the case of lead 2.}  In the case of these dynamic estimates, the `control' group consists of individuals whose status $P_{c,t-1}=P_{c,t}=P_{c,t+1}=0$ (for lead 1), for example at time period $t=2010$ all municipalities who did not provide the EC pill in 2009, 2010 and 2011.  To the degree that all municipalities adopt the EC pill at some point between 2009 and 2012, this limits the number of dynamic impacts estimable to those displayed in Figure \ref{fig:DIDM} (in the case of binary models).  Similar estimates can be proposed for the entire pre-treatment period which are treated as placebos.  Specifically, consider comparing changes in rates of municipalities who adopted the EC pill at a particular moment $t$, between periods $t-2$ and $t-1$, and comparing those with municipalities which did not change their status at period $t$ between the same period $t-2$ and $t-1$.  This is a placebo test insofar as changes should not yet be observed given that no policy is (yet) implemented between $t-2$ and $t-1$.  Thus, we additionally include the full set of estimable placebo impacts (lead 3, 2 and 1) in dynamic models.
+
+While our principal $DID_M$ models are based on binary EC pill provision (and rejection) measures as described in section  \ref{scn:methods} of the paper, we additionally consider `continuous' models, based on changes in rates of EC pill disbursements in each municipality.  This is an extension of \citet{dCdH2017} where changes in rates of health are calculated for each group which changes from some level of pill disbursement to some other level of pill disbursement at time period $t$, compared to changes in health of units which did not change their level of pill disbursement at both points in time.  This effect is then scaled by the degree to which the level of pill disbursements changes over time in line with a standard Wald estimator.  Note that in this case, given that the dynamic estimates discussed above rely on the level of treatment (among treated units) remaining fixed, we can only estimate a single post-treatment effect as levels of pill disbursements vary over time in each treatment group once treatment is available.  We can, however, follow the same procedure as described previously for estimating placebo tests, where rather than focusing on the precise moment of treatment change, we apply the same estimator to the pre-treatment time period only.  In all of these implementations we follow \citet{dCDHG2019}. 
+
+
+\end{document}
+
+
+
